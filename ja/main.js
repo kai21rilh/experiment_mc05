@@ -5,6 +5,7 @@ const jsPsych = initJsPsych({
   default_iti: 250,
   on_finish: function () {
     var datajs = jsPsych.data.get().json();
+    Qualtrics.SurveyEngine.setEmbeddedData("pw", password);
     Qualtrics.SurveyEngine.setEmbeddedData("c1", assignment_c1);
     Qualtrics.SurveyEngine.setEmbeddedData("c2", assignment_c2);
     Qualtrics.SurveyEngine.setEmbeddedData("datajs", datajs);
@@ -64,6 +65,9 @@ const make_block = function (inst, qs) {
   };
   return new_block;
 };
+
+// Password
+const password = jsPsych.randomization.randomInt(10000, 99999);
 
 // introduction
 const intro = {
@@ -1167,7 +1171,10 @@ const complete = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
     "<p>ご協力いただき、ありがとうございました。以上で実験プログラムは終了です。</p>" +
-    "<p>これから、冒頭の調査用ページに戻ります。その後は、画面の指示に従って、先に進んでください。</p>" +
+    "<p>これから、冒頭の調査用ページに戻りますが、後ほど、実験プログラムを完了したことを確認するため、「パスワード」が尋ねられます。</p>" +
+    "<p>あなたに入力していただくパスワードは " +
+    password +
+    " です。<br>忘れずにメモ帳などに保存してください。</p>" +
     '<p style="color:red">※20秒後に、自動的に画面が遷移します。しばらくお待ちください。</p>',
   choices: "NO_KEYS",
   trial_duration: 20000,
