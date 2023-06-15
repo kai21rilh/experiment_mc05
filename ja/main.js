@@ -5,7 +5,6 @@ const jsPsych = initJsPsych({
   default_iti: 250,
   on_finish: function () {
     var datajs = jsPsych.data.get().json();
-    Qualtrics.SurveyEngine.setEmbeddedData("ids", idnum);
     Qualtrics.SurveyEngine.setEmbeddedData("c1", assignment_c1);
     Qualtrics.SurveyEngine.setEmbeddedData("c2", assignment_c2);
     Qualtrics.SurveyEngine.setEmbeddedData("datajs", datajs);
@@ -65,9 +64,6 @@ const make_block = function (inst, qs) {
   };
   return new_block;
 };
-
-// ID number
-const idnum = jsPsych.randomization.randomInt(10000000, 99999999);
 
 // introduction
 const intro = {
