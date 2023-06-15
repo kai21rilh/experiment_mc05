@@ -321,9 +321,9 @@ const make_summary = function (topic) {
         // stimulus (common parts)
         var stim_a =
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p>' +
-          '<p style="text-align:left">' +
+          '<p style="text-align:left"><b>' +
           t1_sentence +
-          "</p>" +
+          "</b></p>" +
           topic +
           "<br>" +
           response_q1 +
@@ -380,9 +380,9 @@ const make_summary = function (topic) {
         // stimulus (common parts)
         var stim_a =
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p>' +
-          '<p style="text-align:left">' +
+          '<p style="text-align:left"><b>' +
           t2_sentence +
-          "</p>" +
+          "</b></p>" +
           topic +
           "<br>" +
           response_q1 +
@@ -500,7 +500,7 @@ const hourglass_t1 = {
   stimulus_height: 210,
   maintain_aspect_ratio: false,
   render_on_canvas: false, // required to use .gif animation
-  prompt: "現在、山口さんが回答中です。しばらくお待ちください・・・",
+  prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
   trial_duration: wp_t1,
   post_trial_gap: 2000,
@@ -837,7 +837,7 @@ const hourglass_t2 = {
   stimulus_height: 210,
   maintain_aspect_ratio: false,
   render_on_canvas: false,
-  prompt: "現在、山口さんが回答中です。しばらくお待ちください・・・",
+  prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
   trial_duration: wp_t2,
   post_trial_gap: 3000,
@@ -1110,7 +1110,7 @@ const hourglass3 = {
   stimulus_height: 210,
   maintain_aspect_ratio: false,
   render_on_canvas: false,
-  prompt: "現在、山口さんが回答中です。しばらくお待ちください・・・",
+  prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
   trial_duration: wp3,
   post_trial_gap: 2000,
@@ -1172,9 +1172,9 @@ const complete = {
   stimulus:
     "<p>ご協力いただき、ありがとうございました。以上で実験プログラムは終了です。</p>" +
     "<p>これから、冒頭の調査用ページに戻りますが、後ほど、実験プログラムを完了したことを確認するため、「パスワード」が尋ねられます。</p>" +
-    "<p>あなたに入力していただくパスワードは " +
+    "<p>あなたに入力していただくパスワードは <b>" +
     password +
-    " です。<br>忘れずにメモ帳などに保存してください。</p>" +
+    "</b> です。<br>忘れずにメモ帳などに保存してください。</p>" +
     '<p style="color:red">※20秒後に、自動的に画面が遷移します。しばらくお待ちください。</p>',
   choices: "NO_KEYS",
   trial_duration: 20000,
