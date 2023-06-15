@@ -30,7 +30,7 @@ const scale_general = [
 
 // image
 const img_hourglass =
-  "https://kai21rilh.github.io/experiment_mc05/jp/img/hourglass_animated.gif";
+  "https://kai21rilh.github.io/experiment_mc05/ja/img/hourglass_animated.gif";
 
 // define local functions
 const make_order = function (number) {
