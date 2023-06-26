@@ -72,7 +72,8 @@ const password = jsPsych.randomization.randomInt(10000, 99999);
 // introduction
 const intro = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "サーバーへの接続が完了しました。実験を開始します。",
+  stimulus:
+    '<p style="font-size:18pt"><b>サーバーへの接続が完了しました。実験を開始します。</b></p>',
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
@@ -160,9 +161,8 @@ const ideology_blocks = {
 const pairing_start = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
-    "<p>これから、他の参加者とペアを組んでいただきます。<br>パートナーとなる参加者の割り当ては、ランダムにおこなわれます。</p>" +
-    "<p>準備ができたら、下のボタンを押して、先に進んでください。</p>" +
-    '<p style="color:red">※現在の参加状況によっては、ペアがうまく組まれない場合があります。<br>申し訳ありませんが、あらかじめご承知おきください。</p>',
+    "これから、他の参加者とペアを組んでいただきます。<br>パートナーとなる参加者の割り当ては、ランダムにおこなわれます。<br><br>準備ができたら、下のボタンを押して、先に進んでください。<br><br>" +
+    '<font color="#c00000">※現在の参加状況によっては、ペアがうまく組まれない場合があります。<br>申し訳ありませんが、あらかじめご承知おきください。</font>',
   choices: ["パートナーを探す"],
   post_trial_gap: 1000,
 };
@@ -187,7 +187,7 @@ const hourglass = {
 const nickname_self = {
   type: jsPsychSurveyLikert,
   preamble:
-    '<p">お待たせしました。無事にペアリングが完了しました。</p><p>事前にお伝えした通り、この研究ではペアで課題に取り組んでいただきます。<br>そのために、まず、お互いのニックネームを決定します。<br>以下から、<b>あなたが本研究で使用するニックネーム</b>を選択してください。</p><p style="color:red">※重複を避けるため、お二人には異なる選択肢を提示しています。</p>',
+    'お待たせしました。無事にペアリングが完了しました。<br><br>事前にお伝えした通り、この研究ではペアで課題に取り組んでいただきます。<br>そのために、まず、お互いのニックネームを決定します。<br>以下から、<b>あなたが本研究で使用するニックネーム</b>を選択してください。<br><br><font color="#c00000">※重複を避けるため、お二人には異なる選択肢を提示しています。</font>',
   questions: [
     {
       prompt: "どのニックネームを使用しますか？",
@@ -216,12 +216,9 @@ const nickname_info = {
       var chosen_nn = "田中";
     }
     return (
-      "<p>ありがとうございました。</p>" +
-      "<p>あなたの名前は<b>「" +
+      "ありがとうございました。<br>あなたの名前は<b>「" +
       chosen_nn +
-      "」さん</b>、パートナーの名前は<b>「山口」さん</b>です。<br>" +
-      "実験中はこの名前を使用するので、忘れないようにしてください。</p>" +
-      '<p style="color:red">※10秒後に、次の画面へ自動的に移動します。</p>'
+      '」さん</b>、パートナーの名前は<b>「山口」さん</b>です。<br>実験中はこの名前を使用するので、忘れないようにしてください。<br><br><font color="#c00000">※10秒後に、次の画面へ自動的に移動します。</font>'
     );
   },
   choices: "NO_KEYS",
@@ -320,10 +317,10 @@ const make_summary = function (topic) {
           .response.judgment_t1_q2;
         // stimulus (common parts)
         var stim_a =
-          '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p>' +
+          '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
           '<p style="text-align:left"><b>' +
           t1_sentence +
-          "</b></p>" +
+          "</b></p><br>" +
           topic +
           "<br>" +
           response_q1 +
@@ -332,11 +329,11 @@ const make_summary = function (topic) {
           "）<br>" +
           "<u>Q2. 自由記述：</u><br>" +
           response_q2 +
-          "</p>" +
+          "</p><br>" +
           '<p style="text-align:left"><b>山口さんの回答：</b><br>';
         var stim_b =
-          "</p>" +
-          '<p style="color:red"><br><br>※30秒後に、次の画面へ自動的に移動します。</p>';
+          "</p><br><br>" +
+          '<font color="#c00000"><br><br>※30秒後に、次の画面へ自動的に移動します。</font>';
         // branch
         if (assignment_c1 == "match" && assignment_c2 == "nonmoral") {
           if (response_q1 <= 3) {
@@ -379,10 +376,10 @@ const make_summary = function (topic) {
           .response.judgment_t2_q2;
         // stimulus (common parts)
         var stim_a =
-          '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p>' +
+          '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
           '<p style="text-align:left"><b>' +
           t2_sentence +
-          "</b></p>" +
+          "</b></p><br>" +
           topic +
           "<br>" +
           response_q1 +
@@ -391,11 +388,11 @@ const make_summary = function (topic) {
           "）<br>" +
           "<u>Q2. 自由記述：</u><br>" +
           response_q2 +
-          "</p>" +
+          "</p><br>" +
           '<p style="text-align:left"><b>山口さんの回答：</b><br>';
         var stim_b =
-          "</p>" +
-          '<p style="color:red"><br><br>※30秒後に、次の画面へ自動的に移動します。</p>';
+          "</p><br><br>" +
+          '<font color="#c00000"><br><br>※30秒後に、次の画面へ自動的に移動します。</font>';
         // branch
         if (assignment_c1 == "match" && assignment_c2 == "nonmoral") {
           if (response_q1 <= 3) {
@@ -442,9 +439,9 @@ const make_summary = function (topic) {
 const judgment_inst = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "<p>さて、ペア課題を始める前に、お二人には<b>「判断課題」</b>に参加していただきます。</p>" +
-    "<p>この課題では、2つの題材について、各自が同じ質問に回答し、互いの回答を閲覧することができます。<br><u>これは、ペア課題に向けて、相手の物事への考え方について知っていただくために行われます</u>。</p>" +
-    '<p style="color:red">※20秒後に、自動的に課題がスタートします。少々お待ちください。</p>',
+    "さて、ペア課題を始める前に、お二人には<b>「判断課題」</b>に参加していただきます。<br><br>" +
+    "この課題では、2つの題材について、各自が同じ質問に回答し、互いの回答を閲覧することができます。<br><u>これは、ペア課題に向けて、相手の物事への考え方について知っていただくために行われます</u>。<br><br>" +
+    '<font color="#c00000">※20秒後に、自動的に課題がスタートします。少々お待ちください。</font>',
   choices: "NO_KEYS",
   trial_duration: 20000,
 };
@@ -452,7 +449,7 @@ const judgment_inst = {
 // topic 1
 const judgment_t1 = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style="font-size:24px"><b>題材１：昆虫食について</b></p>',
+  stimulus: '<p style="font-size:18pt"><b>題材１：昆虫食について</b></p>',
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
@@ -513,8 +510,8 @@ const summary_t1 = make_summary((topic = insect_food));
 const followup_inst_t1 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "<p>昆虫食についての判断課題は以上で終了です。<br>先に進む前に、今の題材について、いくつか追加の質問に回答してください。<br><u>なお、追加の質問への回答は、山口さんには表示されません。</u></p>" +
-    '<p style="color:red">※10秒後に、自動的に次のページに移動します。</p>',
+    "昆虫食についての判断課題は以上で終了です。<br>先に進む前に、今の題材について、いくつか追加の質問に回答してください。<br><u>なお、追加の質問への回答は、山口さんには表示されません。</u><br><br>" +
+    '<font color="#c00000">※10秒後に、自動的に次のページに移動します。</font>',
   choices: "NO_KEYS",
   trial_duration: 10000,
 };
@@ -780,8 +777,8 @@ const followup_blocks_t1 = {
 const followup_end_t1 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "<p>追加の質問は以上です。<br>次のページから、題材２に移ります。</p>" +
-    '<p style="color:red">※5秒後に、自動的に次のページに移動します。</p>',
+    "追加の質問は以上です。<br>次のページから、題材２に移ります。<br><br>" +
+    '<font color="#c00000">※5秒後に、自動的に次のページに移動します。</font>',
   choices: "NO_KEYS",
   trial_duration: 5000,
 };
@@ -789,7 +786,7 @@ const followup_end_t1 = {
 // topic 2
 const judgment_t2 = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style="font-size:24px"><b>題材２：AI技術について</b></p>',
+  stimulus: '<p style="font-size:18pt"><b>題材２：AI技術について</b></p>',
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
@@ -850,8 +847,8 @@ const summary_t2 = make_summary((topic = ai_tech));
 const followup_inst_t2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "<p>AI技術についての判断課題は以上で終了です。<br>先に進む前に、今の題材について、いくつか追加の質問に回答してください。<br><u>なお、追加の質問への回答は、山口さんには表示されません。</u></p>" +
-    '<p style="color:red">※10秒後に、自動的に次のページに移動します。</p>',
+    "AI技術についての判断課題は以上で終了です。<br>先に進む前に、今の題材について、いくつか追加の質問に回答してください。<br><u>なお、追加の質問への回答は、山口さんには表示されません。</u><br><br>" +
+    '<font color="#c00000">※10秒後に、自動的に次のページに移動します。</font>',
   choices: "NO_KEYS",
   trial_duration: 10000,
 };
@@ -1036,8 +1033,8 @@ const followup_blocks_t2 = {
 const followup_end_t2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "<p>追加の質問は以上です。<br>また、以上で「判断課題」は終了です。</p>" +
-    '<p style="color:red">※5秒後に、自動的に次のページに移動します。</p>',
+    "追加の質問は以上です。<br>また、以上で「判断課題」は終了です。<br><br>" +
+    '<font color="#c00000">※5秒後に、自動的に次のページに移動します。</font>',
   choices: "NO_KEYS",
   trial_duration: 5000,
 };
@@ -1046,8 +1043,8 @@ const followup_end_t2 = {
 const srg_inst = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "<p>次のページから、<b>現時点での山口さんの印象</b>について回答していただきます。<br><u>なお、質問への回答は、山口さんには表示されません。</u></p>" +
-    '<p style="color:red">※10秒後に、自動的に次のページに移動します。</p>',
+    "次のページから、<b>現時点での山口さんの印象</b>について回答していただきます。<br><u>なお、質問への回答は、山口さんには表示されません。</u><br><br>" +
+    '<font color="#c00000">※10秒後に、自動的に次のページに移動します。</font>',
   choices: "NO_KEYS",
   trial_duration: 10000,
 };
@@ -1120,9 +1117,8 @@ const hourglass3 = {
 const dv_inst = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "<p>それでは、これから<b>「ペア課題」</b>を開始します。<br><b>ペア課題では、日本のとある政治的トピックについて、チャット形式で会話をしていただきます。</b></p>" +
-    "<p>課題を開始する前に、いくつかの質問に回答してください。<br><u>なお、あなたの回答は、山口さんには表示されません。</u></p>" +
-    '<p style="color:red">※20秒後に、自動的に次のページに移動します。</p>',
+    "それでは、これから<b>「ペア課題」</b>を開始します。<br><b>ペア課題では、日本のとある政治的トピックについて、チャット形式で会話をしていただきます。</b><br><br>課題を開始する前に、いくつかの質問に回答してください。<br><u>なお、あなたの回答は、山口さんには表示されません。</u><br><br>" +
+    '<font color="#c00000">※20秒後に、自動的に次のページに移動します。</font>',
   choices: "NO_KEYS",
   trial_duration: 20000,
 };
@@ -1170,12 +1166,10 @@ const dv_blocks = {
 const complete = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "<p>ご協力いただき、ありがとうございました。以上で実験プログラムは終了です。</p>" +
-    "<p>これから、冒頭の調査用ページに戻りますが、後ほど、実験プログラムを完了したことを確認するため、「パスワード」が尋ねられます。</p>" +
-    "<p>あなたに入力していただくパスワードは <b>" +
+    "ご協力いただき、ありがとうございました。以上で実験プログラムは終了です。<br><br>これから、冒頭の調査用ページに戻りますが、後ほど、実験プログラムを完了したことを確認するため、「パスワード」が尋ねられます。<br><br>あなたに入力していただくパスワードは <b>" +
     password +
-    "</b> です。<br>忘れずにメモ帳などに保存してください。</p>" +
-    '<p style="color:red">※20秒後に、自動的に画面が遷移します。しばらくお待ちください。</p>',
+    "</b> です。<br>忘れずにメモ帳などに保存してください。<br><br>" +
+    '<font color="#c00000">※20秒後に、自動的に画面が遷移します。しばらくお待ちください。</font>',
   choices: "NO_KEYS",
   trial_duration: 20000,
 };
