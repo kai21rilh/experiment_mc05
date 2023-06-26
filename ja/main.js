@@ -331,7 +331,7 @@ const make_summary = function (topic) {
           "</p><br>" +
           '<p style="text-align:left"><b>山口さんの回答：</b><br>';
         var stim_b =
-          "</p><br>" +
+          "</p>" +
           '<font color="#c00000"><br><br>※30秒後に、次の画面へ自動的に移動します。</font>';
         // branch
         if (assignment_c1 == "match" && assignment_c2 == "nonmoral") {
@@ -390,7 +390,7 @@ const make_summary = function (topic) {
           "</p><br>" +
           '<p style="text-align:left"><b>山口さんの回答：</b><br>';
         var stim_b =
-          "</p><br>" +
+          "</p>" +
           '<font color="#c00000"><br><br>※30秒後に、次の画面へ自動的に移動します。</font>';
         // branch
         if (assignment_c1 == "match" && assignment_c2 == "nonmoral") {
