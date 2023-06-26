@@ -72,8 +72,7 @@ const password = jsPsych.randomization.randomInt(10000, 99999);
 // introduction
 const intro = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus:
-    '<p style="font-size:18pt"><b>サーバーへの接続が完了しました。実験を開始します。</b></p>',
+  stimulus: "<b>サーバーへの接続が完了しました。実験を開始します。</b>",
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
@@ -177,7 +176,7 @@ const hourglass = {
   maintain_aspect_ratio: false,
   render_on_canvas: false,
   prompt:
-    '<p>現在、パートナーとなる参加者の方を探しています。しばらくお待ちください・・・</p><p style="color:red">※もし、30秒以内に画面が進まない場合は、申し訳ありませんが、後ほど改めてご参加ください。</p>',
+    '<p>現在、パートナーとなる参加者の方を探しています。しばらくお待ちください・・・</p><p style="color:#c00000">※もし、30秒以内に画面が進まない場合は、申し訳ありませんが、後ほど改めてご参加ください。</p>',
   choices: "NO_KEYS",
   trial_duration: wp,
   post_trial_gap: 5000,
@@ -332,7 +331,7 @@ const make_summary = function (topic) {
           "</p><br>" +
           '<p style="text-align:left"><b>山口さんの回答：</b><br>';
         var stim_b =
-          "</p><br><br>" +
+          "</p><br>" +
           '<font color="#c00000"><br><br>※30秒後に、次の画面へ自動的に移動します。</font>';
         // branch
         if (assignment_c1 == "match" && assignment_c2 == "nonmoral") {
@@ -391,7 +390,7 @@ const make_summary = function (topic) {
           "</p><br>" +
           '<p style="text-align:left"><b>山口さんの回答：</b><br>';
         var stim_b =
-          "</p><br><br>" +
+          "</p><br>" +
           '<font color="#c00000"><br><br>※30秒後に、次の画面へ自動的に移動します。</font>';
         // branch
         if (assignment_c1 == "match" && assignment_c2 == "nonmoral") {
@@ -449,7 +448,7 @@ const judgment_inst = {
 // topic 1
 const judgment_t1 = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style="font-size:18pt"><b>題材１：昆虫食について</b></p>',
+  stimulus: '<p style="font-size:16pt"><b>題材１：昆虫食について</b></p>',
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
@@ -786,7 +785,7 @@ const followup_end_t1 = {
 // topic 2
 const judgment_t2 = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style="font-size:18pt"><b>題材２：AI技術について</b></p>',
+  stimulus: '<p style="font-size:16pt"><b>題材２：AI技術について</b></p>',
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
@@ -1166,7 +1165,7 @@ const dv_blocks = {
 const complete = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "ご協力いただき、ありがとうございました。以上で実験プログラムは終了です。<br><br>これから、冒頭の調査用ページに戻りますが、後ほど、実験プログラムを完了したことを確認するため、「パスワード」が尋ねられます。<br><br>あなたに入力していただくパスワードは <b>" +
+    "ご協力いただき、ありがとうございました。以上で実験プログラムは終了です。<br><br>これから、冒頭の調査用ページに戻ります。<br>後ほど、実験プログラムを完了したことを確認するため、「パスワード」が尋ねられます。<br><br>あなたに入力していただくパスワードは <b>" +
     password +
     "</b> です。<br>忘れずにメモ帳などに保存してください。<br><br>" +
     '<font color="#c00000">※20秒後に、自動的に画面が遷移します。しばらくお待ちください。</font>',
