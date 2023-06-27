@@ -514,6 +514,7 @@ const judgment_t1_q2 = {
 
 // waiting period
 var rt_partner_t1 = jsPsych.randomization.randomInt(55000, 65000);
+var time_left_t1 = 5000;
 const hourglass_t1 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: function () {
@@ -859,6 +860,7 @@ const judgment_t2_q2 = {
 
 // waiting period
 var rt_partner_t2 = jsPsych.randomization.randomInt(55000, 65000);
+var time_left_t2 = 5000;
 const hourglass_t2 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: function () {
@@ -1141,6 +1143,7 @@ const srg_blocks = {
 
 // waiting period
 var rt_partner = jsPsych.randomization.randomInt(40000, 50000);
+var time_left = 5000;
 const hourglass3 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: function () {
