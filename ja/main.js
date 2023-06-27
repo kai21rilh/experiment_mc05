@@ -69,6 +69,12 @@ const make_block = function (inst, qs) {
 // Password
 const password = jsPsych.randomization.randomInt(10000, 99999);
 
+// loading
+const preload = {
+  type: jsPsychPreload,
+  auto_preload: true,
+};
+
 // introduction
 const intro = {
   type: jsPsychHtmlKeyboardResponse,
@@ -225,72 +231,91 @@ const nickname_info = {
 };
 
 // judgment task
-// instructions, items, and scales
+// preambles, sentences, and scale
 const inst_q1 =
-  "以下の文は、あなたの考えにどの程度あてはまりますか。あなたの考えにもっとも近い数字を選んで回答してください。";
+  "以下の文を読んで、あなたの考えにもっとも近い数字を選んで回答してください。";
 
 const inst_q2 = "以下の指示をよく読んで、ページ下部の空欄に記入してください。";
 
 const t1_sentence =
-  "私は、もし昆虫食が近所のスーパーで手に入るようになったら、日常食として購入するだろう。";
+  "私は、もし昆虫食が近所のスーパーで手に入るようになったら、日常食として購入したい。";
 
 const t2_sentence =
-  "私は、AI技術を自身の日常生活のさまざまな場面で積極的に取り入れていきたいと思っている。";
+  "私は、AI技術を、自身の日常生活のさまざまな場面で積極的に取り入れていきたい。";
 
-const scale_q1 = [
-  "1<br>全く<br>当てはまらない",
-  "2<br><br>当てはまらない",
-  "3<br>あまり<br>当てはまらない",
-  "4<br>やや<br>当てはまる",
-  "5<br><br>当てはまる",
-  "6<br>非常によく<br>当てはまる",
+const scale_q1_t1 = [
+  "1<br>絶対に<br>購入したくない",
+  "2<br><br>購入したくない",
+  "3<br>あまり<br>購入したくない",
+  "4<br>やや<br>購入したい",
+  "5<br><br>購入したい",
+  "6<br>絶対に<br>購入したい",
 ];
 
-const labels_q1 = [
-  "全く当てはまらない",
-  "当てはまらない",
-  "あまり当てはまらない",
-  "やや当てはまる",
-  "当てはまる",
-  "非常によく当てはまる",
+const scale_q1_t2 = [
+  "1<br>絶対に<br>取り入れたくない",
+  "2<br><br>取り入れたくない",
+  "3<br>あまり<br>取り入れたくない",
+  "4<br>やや<br>取り入れたい",
+  "5<br><br>取り入れたい",
+  "6<br>絶対に<br>取り入れたい",
+];
+
+const labels_q1_t1 = [
+  "絶対に購入したくない",
+  "購入したくない",
+  "あまり購入したくない",
+  "やや購入したい",
+  "購入したい",
+  "絶対に購入したい",
+];
+
+const labels_q1_t2 = [
+  "絶対に取り入れたくない",
+  "取り入れたくない",
+  "あまり取り入れたくない",
+  "やや取り入れたい",
+  "取り入れたい",
+  "絶対に取り入れたい",
 ];
 
 // topic
 const insect_food =
-  '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. 昆虫食を日常食に？：</u>';
+  '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. 昆虫食を日常食にしたい？：</u>';
 
 const ai_tech =
-  '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. AI技術の取り入れ？：</u>';
+  '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. AI技術を取り入れたい？：</u>';
 
 // condition
 const positive_nonmoral_t1 =
-  "<u>Q1. 昆虫食を日常食に？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがあり、味がとても美味しかったので、もし日常的に食べられるなら、ぜひそうしたいと思います。";
+  "<u>Q1. 昆虫食を日常食にしたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがあり、味がとても美味しかったので、もし日常的に食べられるなら、ぜひそうしたいと思います。";
 
 const positive_moral_t1 =
-  "<u>Q1. 昆虫食を日常食に？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>やがて来る食糧難の未来において、昆虫食は人々の義務となるでしょうから、今から積極的に取り入れていくべきだと思います。";
+  "<u>Q1. 昆虫食を日常食にしたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>やがて来る食糧難の未来において、昆虫食は人々の義務となるでしょうから、今から積極的に取り入れていくべきだと思います。";
 
 const negative_nonmoral_t1 =
-  "<u>Q1. 昆虫食を日常食に？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがありますが、味がまったく好みではなかったので、機会があっても、もう食べたいとは思いません。";
+  "<u>Q1. 昆虫食を日常食にしたい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがありますが、味がまったく好みではなかったので、機会があっても、もう食べたいとは思いません。";
 
 const negative_moral_t1 =
-  "<u>Q1. 昆虫食を日常食に？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>他に食べられるものが色々あるのに、よりによって「虫」を食べるなんて、爬虫類ではないのですから、人間として間違っていると思います。";
+  "<u>Q1. 昆虫食を日常食にしたい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>他に食べられるものが色々あるのに、よりによって「虫」を食べるなんて、爬虫類ではないのですから、人間として間違っていると思います。";
 
 const positive_nonmoral_t2 =
-  "<u>Q1. AI技術の取り入れ？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>AI技術は色々な仕事にかかる時間を短縮してくれて、効率化が図れるので、ぜひ自分の生活に積極的に取り入れていきたいと思います。";
+  "<u>Q1. AI技術を取り入れたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>AI技術は色々な仕事にかかる時間を短縮してくれて、効率化が図れるので、ぜひ自分の生活に積極的に取り入れていきたいと思います。";
 
 const positive_moral_t2 =
-  "<u>Q1. AI技術の取り入れ？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>AI技術に適応できない人々は、やがて社会から淘汰されていくでしょう。今からこうした技術に慣れておくのは、私たちの責務だと思います。";
+  "<u>Q1. AI技術を取り入れたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>AI技術に適応できない人々は、やがて社会から淘汰されていくでしょう。今からこうした技術に慣れておくのは、私たちの責務だと思います。";
 
 const negative_nonmoral_t2 =
-  "<u>Q1. AI技術の取り入れ？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>AI技術は確かに便利なのかもしれませんが、私としては、自分で考えて手を動かす時間をとることが好きなので、特に魅力を感じません。";
+  "<u>Q1. AI技術を取り入れたい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>AI技術は確かに便利なのかもしれませんが、私としては、自分で考えて手を動かす時間をとることが好きなので、特に魅力を感じません。";
 
 const negative_moral_t2 =
-  "<u>Q1. AI技術の取り入れ？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>AI技術は、私たちを依存させる麻薬のようなものです。決して頼ってはいけません。でないと、やがて自分で考える力が奪われてしまいます。";
+  "<u>Q1. AI技術を取り入れたい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>AI技術は、私たちを依存させる麻薬のようなものです。決して頼ってはいけません。でないと、やがて自分で考える力が奪われてしまいます。";
 
 // manipulation
+// define levels
 const levels_c1 = ["match", "mismatch"];
 const levels_c2 = ["moral", "nonmoral"];
-
+// define assignment (array output)
 const result_c1 = jsPsych.randomization.sampleWithoutReplacement(
   (array = levels_c1),
   (sampleSize = 1)
@@ -299,7 +324,7 @@ const result_c2 = jsPsych.randomization.sampleWithoutReplacement(
   (array = levels_c2),
   (sampleSize = 1)
 );
-
+// convert to string
 const assignment_c1 = result_c1.toString();
 const assignment_c2 = result_c2.toString();
 
@@ -319,12 +344,12 @@ const make_summary = function (topic) {
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
           '<p style="text-align:left"><b>' +
           t1_sentence +
-          "</b></p><br>" +
+          "</b></p>" +
           topic +
           "<br>" +
           response_q1 +
           "（" +
-          labels_q1[response_q1 - 1] +
+          labels_q1_t1[response_q1 - 1] +
           "）<br>" +
           "<u>Q2. 自由記述：</u><br>" +
           response_q2 +
@@ -378,12 +403,12 @@ const make_summary = function (topic) {
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
           '<p style="text-align:left"><b>' +
           t2_sentence +
-          "</b></p><br>" +
+          "</b></p>" +
           topic +
           "<br>" +
           response_q1 +
           "（" +
-          labels_q1[response_q1 - 1] +
+          labels_q1_t2[response_q1 - 1] +
           "）<br>" +
           "<u>Q2. 自由記述：</u><br>" +
           response_q2 +
@@ -460,7 +485,7 @@ const judgment_t1_q1 = {
   questions: [
     {
       prompt: '<p style="text-align:left">' + t1_sentence + "</p>",
-      labels: scale_q1,
+      labels: scale_q1_t1,
       name: "judgment_t1_q1",
       required: true,
     },
@@ -488,18 +513,26 @@ const judgment_t1_q2 = {
 };
 
 // waiting period
-var wp_t1 = jsPsych.randomization.randomInt(15000, 20000);
+var rt_partner_t1 = jsPsych.randomization.randomInt(55000, 65000);
 const hourglass_t1 = {
   type: jsPsychImageKeyboardResponse,
-  stimulus: img_hourglass,
+  stimulus: function () {
+    var rt_participant_t1 = jsPsych.data.get().last(1).values()[0]
+      .rt.judgment_t1_q2;
+    var time_left_t1 = rt_partner_t1 - rt_participant_t1;
+    if (time_left_t1 <= 100) {
+      var time_left_t1 = 100;
+    }
+    return img_hourglass;
+  },
   stimulus_width: 280,
   stimulus_height: 210,
   maintain_aspect_ratio: false,
-  render_on_canvas: false, // required to use .gif animation
+  render_on_canvas: false,
   prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
-  trial_duration: wp_t1,
-  post_trial_gap: 2000,
+  trial_duration: time_left_t1,
+  post_trial_gap: 3000,
 };
 
 // result summary
@@ -797,7 +830,7 @@ const judgment_t2_q1 = {
   questions: [
     {
       prompt: '<p style="text-align:left">' + t2_sentence + "</p>",
-      labels: scale_q1,
+      labels: scale_q1_t2,
       name: "judgment_t2_q1",
       required: true,
     },
@@ -825,17 +858,25 @@ const judgment_t2_q2 = {
 };
 
 // waiting period
-var wp_t2 = jsPsych.randomization.randomInt(12000, 18000);
+var rt_partner_t2 = jsPsych.randomization.randomInt(55000, 65000);
 const hourglass_t2 = {
   type: jsPsychImageKeyboardResponse,
-  stimulus: img_hourglass,
+  stimulus: function () {
+    var rt_participant_t2 = jsPsych.data.get().last(1).values()[0]
+      .rt.judgment_t2_q2;
+    var time_left_t2 = rt_partner_t2 - rt_participant_t2;
+    if (time_left_t2 <= 100) {
+      var time_left_t2 = 100;
+    }
+    return img_hourglass;
+  },
   stimulus_width: 280,
   stimulus_height: 210,
   maintain_aspect_ratio: false,
   render_on_canvas: false,
   prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
-  trial_duration: wp_t2,
+  trial_duration: time_left_t2,
   post_trial_gap: 3000,
 };
 
@@ -1076,6 +1117,7 @@ const names_srg = [
 
 // create blocks
 let order_srg = make_order(items_srg.length);
+let last_srg = names_srg[order_srg[8]];
 
 let qs_srg = {};
 let srg_block = {};
@@ -1098,18 +1140,25 @@ const srg_blocks = {
 };
 
 // waiting period
-var wp3 = jsPsych.randomization.randomInt(10000, 15000);
+var rt_partner = jsPsych.randomization.randomInt(40000, 50000);
 const hourglass3 = {
   type: jsPsychImageKeyboardResponse,
-  stimulus: img_hourglass,
+  stimulus: function () {
+    var rt_participant = jsPsych.data.get().last(1).values()[0].rt.last_srg * 9;
+    var time_left = rt_partner - rt_participant;
+    if (time_left <= 100) {
+      var time_left = 100;
+    }
+    return img_hourglass;
+  },
   stimulus_width: 280,
   stimulus_height: 210,
   maintain_aspect_ratio: false,
   render_on_canvas: false,
   prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
-  trial_duration: wp3,
-  post_trial_gap: 2000,
+  trial_duration: time_left,
+  post_trial_gap: 3000,
 };
 
 // dependent measures
@@ -1176,6 +1225,7 @@ const complete = {
 // timeline
 const questionnaire = {
   timeline: [
+    preload,
     intro,
     age,
     sex,
