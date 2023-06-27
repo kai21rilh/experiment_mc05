@@ -2,7 +2,7 @@
 const jsPsych = initJsPsych({
   display_element: "display_stage",
   experiment_width: 1100,
-  default_iti: 250,
+  default_iti: 500,
   on_finish: function () {
     var datajs = jsPsych.data.get().json();
     Qualtrics.SurveyEngine.setEmbeddedData("pw", password);
@@ -281,23 +281,23 @@ const labels_q1_t2 = [
 
 // topic
 const insect_food =
-  '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. 昆虫食を日常食にしたい？：</u>';
+  '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. 昆虫食を日常食として購入したい？：</u>';
 
 const ai_tech =
   '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. AI技術を取り入れたい？：</u>';
 
 // condition
 const positive_nonmoral_t1 =
-  "<u>Q1. 昆虫食を日常食にしたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがあり、味がとても美味しかったので、もし日常的に食べられるなら、ぜひそうしたいと思います。";
+  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがあり、味がとても美味しかったので、もし日常的に食べられるなら、ぜひそうしたいと思います。";
 
 const positive_moral_t1 =
-  "<u>Q1. 昆虫食を日常食にしたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>やがて来る食糧難の未来において、昆虫食は人々の義務となるでしょうから、今から積極的に取り入れていくべきだと思います。";
+  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>やがて来る食糧難の未来において、昆虫食は人々の義務となるでしょうから、今から積極的に取り入れていくべきだと思います。";
 
 const negative_nonmoral_t1 =
-  "<u>Q1. 昆虫食を日常食にしたい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがありますが、味がまったく好みではなかったので、機会があっても、もう食べたいとは思いません。";
+  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがありますが、味がまったく好みではなかったので、機会があっても、もう食べたいとは思いません。";
 
 const negative_moral_t1 =
-  "<u>Q1. 昆虫食を日常食にしたい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>他に食べられるものが色々あるのに、よりによって「虫」を食べるなんて、爬虫類ではないのですから、人間として間違っていると思います。";
+  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>他に食べられるものが色々あるのに、よりによって「虫」を食べるなんて、爬虫類ではないのですから、人間として間違っていると思います。";
 
 const positive_nonmoral_t2 =
   "<u>Q1. AI技術を取り入れたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>AI技術は色々な仕事にかかる時間を短縮してくれて、効率化が図れるので、ぜひ自分の生活に積極的に取り入れていきたいと思います。";
@@ -344,7 +344,7 @@ const make_summary = function (topic) {
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
           '<p style="text-align:left"><b>' +
           t1_sentence +
-          "</b></p>" +
+          "</b></p><br>" +
           topic +
           "<br>" +
           response_q1 +
@@ -403,7 +403,7 @@ const make_summary = function (topic) {
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
           '<p style="text-align:left"><b>' +
           t2_sentence +
-          "</b></p>" +
+          "</b></p><br>" +
           topic +
           "<br>" +
           response_q1 +
@@ -518,8 +518,7 @@ var time_left_t1 = 5000;
 const hourglass_t1 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: function () {
-    var rt_participant_t1 = jsPsych.data.get().last(1).values()[0]
-      .rt.judgment_t1_q2;
+    var rt_participant_t1 = jsPsych.data.get().last(1).values()[0].rt;
     var time_left_t1 = rt_partner_t1 - rt_participant_t1;
     if (time_left_t1 <= 100) {
       var time_left_t1 = 100;
@@ -864,8 +863,7 @@ var time_left_t2 = 5000;
 const hourglass_t2 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: function () {
-    var rt_participant_t2 = jsPsych.data.get().last(1).values()[0]
-      .rt.judgment_t2_q2;
+    var rt_participant_t2 = jsPsych.data.get().last(1).values()[0].rt;
     var time_left_t2 = rt_partner_t2 - rt_participant_t2;
     if (time_left_t2 <= 100) {
       var time_left_t2 = 100;
@@ -1119,8 +1117,6 @@ const names_srg = [
 
 // create blocks
 let order_srg = make_order(items_srg.length);
-let last_srg = names_srg[order_srg[8]];
-
 let qs_srg = {};
 let srg_block = {};
 let timeline_srg = [];
@@ -1147,7 +1143,17 @@ var time_left = 5000;
 const hourglass3 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: function () {
-    var rt_participant = jsPsych.data.get().last(1).values()[0].rt.last_srg * 9;
+    var rtp_1 = jsPsych.data.get().last(1).values()[0].rt;
+    var rtp_2 = jsPsych.data.get().last(2).values()[0].rt;
+    var rtp_3 = jsPsych.data.get().last(3).values()[0].rt;
+    var rtp_4 = jsPsych.data.get().last(4).values()[0].rt;
+    var rtp_5 = jsPsych.data.get().last(5).values()[0].rt;
+    var rtp_6 = jsPsych.data.get().last(6).values()[0].rt;
+    var rtp_7 = jsPsych.data.get().last(7).values()[0].rt;
+    var rtp_8 = jsPsych.data.get().last(8).values()[0].rt;
+    var rtp_9 = jsPsych.data.get().last(9).values()[0].rt;
+    var rt_participant =
+      rtp_1 + rtp_2 + rtp_3 + rtp_4 + rtp_5 + rtp_6 + rtp_7 + rtp_8 + rtp_9;
     var time_left = rt_partner - rt_participant;
     if (time_left <= 100) {
       var time_left = 100;
