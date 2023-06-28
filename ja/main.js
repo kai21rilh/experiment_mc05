@@ -529,13 +529,10 @@ const hourglass_ifood = {
   choices: "NO_KEYS",
   trial_duration: function () {
     var rt_participant_ifood = jsPsych.data.get().last(1).values()[0].rt;
-    console.log(rt_participant_ifood);
     if (time_left_ifood <= 100) {
       var time_left_ifood = 100;
-      console.log(time_left_ifood);
     } else {
       var time_left_ifood = rt_partner_ifood - rt_participant_ifood;
-      console.log(time_left_ifood);
     }
     return time_left_ifood;
   },
@@ -543,7 +540,7 @@ const hourglass_ifood = {
 };
 
 // result summary
-const summary_ifood = make_summary((topic = topic_1));
+const summary_ifood = make_summary((topic = "insect_food"));
 
 // follow-up questions
 const followup_inst_ifood = {
@@ -895,13 +892,10 @@ const hourglass_aitech = {
   choices: "NO_KEYS",
   trial_duration: function () {
     var rt_participant_aitech = jsPsych.data.get().last(1).values()[0].rt;
-    console.log(rt_participant_aitech);
     if (time_left_aitech <= 100) {
       var time_left_aitech = 100;
-      console.log(time_left_aitech);
     } else {
       var time_left_aitech = rt_partner_aitech - rt_participant_aitech;
-      console.log(time_left_aitech);
     }
     return time_left_aitech;
   },
@@ -909,7 +903,7 @@ const hourglass_aitech = {
 };
 
 // result summary
-const summary_aitech = make_summary((topic = topic_2));
+const summary_aitech = make_summary((topic = "ai_tech"));
 
 // follow-up questions
 const followup_inst_aitech = {
@@ -1248,23 +1242,12 @@ const hourglass3 = {
     var rtp_7 = jsPsych.data.get().last(7).values()[0].rt;
     var rtp_8 = jsPsych.data.get().last(8).values()[0].rt;
     var rtp_9 = jsPsych.data.get().last(9).values()[0].rt;
-    console.log(rtp_1);
-    console.log(rtp_2);
-    console.log(rtp_3);
-    console.log(rtp_4);
-    console.log(rtp_5);
-    console.log(rtp_6);
-    console.log(rtp_7);
-    console.log(rtp_8);
-    console.log(rtp_9);
     var rt_participant =
       rtp_1 + rtp_2 + rtp_3 + rtp_4 + rtp_5 + rtp_6 + rtp_7 + rtp_8 + rtp_9;
     if (time_left <= 100) {
       var time_left = 100;
-      console.log(time_left);
     } else {
       var time_left = rt_partner - rt_participant;
-      console.log(time_left);
     }
     return time_left;
   },
