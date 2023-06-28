@@ -8,25 +8,16 @@ const jsPsych = initJsPsych({
     Qualtrics.SurveyEngine.setEmbeddedData("pw", password);
     Qualtrics.SurveyEngine.setEmbeddedData("c1", assignment_c1);
     Qualtrics.SurveyEngine.setEmbeddedData("c2", assignment_c2);
+    Qualtrics.SurveyEngine.setEmbeddedData("t1", topic_1);
+    Qualtrics.SurveyEngine.setEmbeddedData("t2", topic_2);
     Qualtrics.SurveyEngine.setEmbeddedData("datajs", datajs);
     jQuery("#display_stage").remove();
     jQuery("#display_stage_background").remove();
   },
 });
 
-// general variables
+// next button
 const next_text = "次のページへ";
-const inst_general =
-  "以下の文は、あなたの考えにどの程度あてはまりますか。あなたの考えにもっとも近い数字を選んで回答してください。";
-const scale_general = [
-  "1<br>全く<br>そう思わない",
-  "2",
-  "3",
-  "4<br>どちらとも<br>言えない",
-  "5",
-  "6",
-  "7<br>非常に強く<br>そう思う",
-];
 
 // image
 const img_hourglass =
@@ -78,7 +69,7 @@ const preload = {
 // introduction
 const intro = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "<b>サーバーへの接続が完了しました。実験を開始します。</b>",
+  stimulus: "サーバーへの接続が完了しました。実験を開始します。",
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
@@ -90,7 +81,7 @@ const age = {
   questions: [
     {
       prompt: "あなたの年齢について回答してください。",
-      placeholder: "半角数字のみ（例．34）",
+      placeholder: "半角数字のみ",
       name: "age",
       columns: 30,
       required: true,
@@ -178,8 +169,8 @@ var wp = jsPsych.randomization.randomInt(15000, 20000);
 const hourglass = {
   type: jsPsychImageKeyboardResponse,
   stimulus: img_hourglass,
-  stimulus_width: 280,
-  stimulus_height: 210,
+  stimulus_width: 240,
+  stimulus_height: 180,
   maintain_aspect_ratio: false,
   render_on_canvas: false,
   prompt:
@@ -239,13 +230,13 @@ const inst_q1 =
 
 const inst_q2 = "以下の指示をよく読んで、ページ下部の空欄に記入してください。";
 
-const t1_sentence =
+const ifood_sentence =
   "私は、もし昆虫食が近所のスーパーで手に入るようになったら、日常食として購入したい。";
 
-const t2_sentence =
+const aitech_sentence =
   "私は、AI技術を、自身の日常生活のさまざまな場面で積極的に取り入れていきたい。";
 
-const scale_q1_t1 = [
+const scale_q1_ifood = [
   "1<br>絶対に<br>購入したくない",
   "2<br><br>購入したくない",
   "3<br>あまり<br>購入したくない",
@@ -254,7 +245,7 @@ const scale_q1_t1 = [
   "6<br>絶対に<br>購入したい",
 ];
 
-const scale_q1_t2 = [
+const scale_q1_aitech = [
   "1<br>絶対に<br>取り入れたくない",
   "2<br><br>取り入れたくない",
   "3<br>あまり<br>取り入れたくない",
@@ -263,7 +254,7 @@ const scale_q1_t2 = [
   "6<br>絶対に<br>取り入れたい",
 ];
 
-const labels_q1_t1 = [
+const labels_q1_ifood = [
   "絶対に購入したくない",
   "購入したくない",
   "あまり購入したくない",
@@ -272,7 +263,7 @@ const labels_q1_t1 = [
   "絶対に購入したい",
 ];
 
-const labels_q1_t2 = [
+const labels_q1_aitech = [
   "絶対に取り入れたくない",
   "取り入れたくない",
   "あまり取り入れたくない",
@@ -282,38 +273,38 @@ const labels_q1_t2 = [
 ];
 
 // topic
-const insect_food =
+const ifood_self =
   '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. 昆虫食を日常食として購入したい？：</u>';
 
-const ai_tech =
+const aitech_self =
   '<p style="text-align:left"><b>あなたの回答：</b><br><u>Q1. AI技術を取り入れたい？：</u>';
 
 // condition
-const positive_nonmoral_t1 =
+const positive_nonmoral_ifood =
   "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>6（絶対に購入したい）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがあり、味がとても美味しかったので、もし日常的に食べられるなら、ぜひそうしたいと思います。";
 
-const positive_moral_t1 =
+const positive_moral_ifood =
   "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>6（絶対に購入したい）<br><u>Q2. 自由記述：</u><br>やがて来る食糧難の未来において、昆虫食は人々の義務となるでしょうから、今から積極的に取り入れていくべきだと思います。";
 
-const negative_nonmoral_t1 =
+const negative_nonmoral_ifood =
   "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>1（絶対に購入したくない）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがありますが、味がまったく好みではなかったので、機会があっても、もう食べたいとは思いません。";
 
-const negative_moral_t1 =
+const negative_moral_ifood =
   "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>1（絶対に購入したくない）<br><u>Q2. 自由記述：</u><br>他に食べられるものが色々あるのに、よりによって「虫」を食べるなんて、爬虫類ではないのですから、人間として間違っていると思います。";
 
-const positive_nonmoral_t2 =
+const positive_nonmoral_aitech =
   "<u>Q1. AI技術を取り入れたい？：</u><br>6（絶対に取り入れたい）<br><u>Q2. 自由記述：</u><br>AI技術は色々な仕事にかかる時間を短縮してくれて、効率化が図れるので、ぜひ自分の生活に積極的に取り入れていきたいと思います。";
 
-const positive_moral_t2 =
+const positive_moral_aitech =
   "<u>Q1. AI技術を取り入れたい？：</u><br>6（絶対に取り入れたい）<br><u>Q2. 自由記述：</u><br>AI技術に適応できない人々は、やがて社会から淘汰されていくでしょう。今からこうした技術に慣れておくのは、私たちの責務だと思います。";
 
-const negative_nonmoral_t2 =
+const negative_nonmoral_aitech =
   "<u>Q1. AI技術を取り入れたい？：</u><br>1（絶対に取り入れたくない）<br><u>Q2. 自由記述：</u><br>AI技術は確かに便利なのかもしれませんが、私としては、自分で考えて手を動かす時間をとることが好きなので、特に魅力を感じません。";
 
-const negative_moral_t2 =
+const negative_moral_aitech =
   "<u>Q1. AI技術を取り入れたい？：</u><br>1（絶対に取り入れたくない）<br><u>Q2. 自由記述：</u><br>AI技術は、私たちを依存させる麻薬のようなものです。決して頼ってはいけません。でないと、やがて自分で考える力が奪われてしまいます。";
 
-// manipulation
+// manipulation (condition)
 // define levels
 const levels_c1 = ["match", "mismatch"];
 const levels_c2 = ["moral", "nonmoral"];
@@ -330,28 +321,38 @@ const result_c2 = jsPsych.randomization.sampleWithoutReplacement(
 const assignment_c1 = result_c1.toString();
 const assignment_c2 = result_c2.toString();
 
+// manipulation (counterbalance)
+// define levels
+const levels_topic = ["insect_food", "ai_tech"];
+const result_topic = jsPsych.randomization.sampleWithoutReplacement(
+  (array = levels_topic),
+  (sampleSize = 2)
+);
+const topic_1 = result_topic[0].toString();
+const topic_2 = result_topic[1].toString();
+
 // function
 const make_summary = function (topic) {
   let new_summary = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: function () {
-      if (topic == insect_food) {
+      if (topic == "insect_food") {
         // define responses
         var response_q1 =
-          jsPsych.data.get().last(3).values()[0].response.judgment_t1_q1 + 1;
+          jsPsych.data.get().last(3).values()[0].response.judgment_ifood_q1 + 1;
         var response_q2 = jsPsych.data.get().last(2).values()[0]
-          .response.judgment_t1_q2;
+          .response.judgment_ifood_q2;
         // stimulus (common parts)
         var stim_a =
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
           '<p style="text-align:left"><b>' +
-          t1_sentence +
+          ifood_sentence +
           "</b></p><br>" +
-          topic +
+          ifood_self +
           "<br>" +
           response_q1 +
           "（" +
-          labels_q1_t1[response_q1 - 1] +
+          labels_q1_ifood[response_q1 - 1] +
           "）<br>" +
           "<u>Q2. 自由記述：</u><br>" +
           response_q2 +
@@ -363,54 +364,55 @@ const make_summary = function (topic) {
         // branch
         if (assignment_c1 == "match" && assignment_c2 == "nonmoral") {
           if (response_q1 <= 3) {
-            var stim = stim_a + negative_nonmoral_t1 + stim_b;
+            var stim = stim_a + negative_nonmoral_ifood + stim_b;
           }
           if (response_q1 >= 4) {
-            var stim = stim_a + positive_nonmoral_t1 + stim_b;
+            var stim = stim_a + positive_nonmoral_ifood + stim_b;
           }
         }
         if (assignment_c1 == "match" && assignment_c2 == "moral") {
           if (response_q1 <= 3) {
-            var stim = stim_a + negative_moral_t1 + stim_b;
+            var stim = stim_a + negative_moral_ifood + stim_b;
           }
           if (response_q1 >= 4) {
-            var stim = stim_a + positive_moral_t1 + stim_b;
+            var stim = stim_a + positive_moral_ifood + stim_b;
           }
         }
         if (assignment_c1 == "mismatch" && assignment_c2 == "nonmoral") {
           if (response_q1 <= 3) {
-            var stim = stim_a + positive_nonmoral_t1 + stim_b;
+            var stim = stim_a + positive_nonmoral_ifood + stim_b;
           }
           if (response_q1 >= 4) {
-            var stim = stim_a + negative_nonmoral_t1 + stim_b;
+            var stim = stim_a + negative_nonmoral_ifood + stim_b;
           }
         }
         if (assignment_c1 == "mismatch" && assignment_c2 == "moral") {
           if (response_q1 <= 3) {
-            var stim = stim_a + positive_moral_t1 + stim_b;
+            var stim = stim_a + positive_moral_ifood + stim_b;
           }
           if (response_q1 >= 4) {
-            var stim = stim_a + negative_moral_t1 + stim_b;
+            var stim = stim_a + negative_moral_ifood + stim_b;
           }
         }
       }
-      if (topic == ai_tech) {
+      if (topic == "ai_tech") {
         // define responses
         var response_q1 =
-          jsPsych.data.get().last(3).values()[0].response.judgment_t2_q1 + 1;
+          jsPsych.data.get().last(3).values()[0].response.judgment_aitech_q1 +
+          1;
         var response_q2 = jsPsych.data.get().last(2).values()[0]
-          .response.judgment_t2_q2;
+          .response.judgment_aitech_q2;
         // stimulus (common parts)
         var stim_a =
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
           '<p style="text-align:left"><b>' +
-          t2_sentence +
+          aitech_sentence +
           "</b></p><br>" +
-          topic +
+          aitech_self +
           "<br>" +
           response_q1 +
           "（" +
-          labels_q1_t2[response_q1 - 1] +
+          labels_q1_aitech[response_q1 - 1] +
           "）<br>" +
           "<u>Q2. 自由記述：</u><br>" +
           response_q2 +
@@ -422,34 +424,34 @@ const make_summary = function (topic) {
         // branch
         if (assignment_c1 == "match" && assignment_c2 == "nonmoral") {
           if (response_q1 <= 3) {
-            var stim = stim_a + negative_nonmoral_t2 + stim_b;
+            var stim = stim_a + negative_nonmoral_aitech + stim_b;
           }
           if (response_q1 >= 4) {
-            var stim = stim_a + positive_nonmoral_t2 + stim_b;
+            var stim = stim_a + positive_nonmoral_aitech + stim_b;
           }
         }
         if (assignment_c1 == "match" && assignment_c2 == "moral") {
           if (response_q1 <= 3) {
-            var stim = stim_a + negative_moral_t2 + stim_b;
+            var stim = stim_a + negative_moral_aitech + stim_b;
           }
           if (response_q1 >= 4) {
-            var stim = stim_a + positive_moral_t2 + stim_b;
+            var stim = stim_a + positive_moral_aitech + stim_b;
           }
         }
         if (assignment_c1 == "mismatch" && assignment_c2 == "nonmoral") {
           if (response_q1 <= 3) {
-            var stim = stim_a + positive_nonmoral_t2 + stim_b;
+            var stim = stim_a + positive_nonmoral_aitech + stim_b;
           }
           if (response_q1 >= 4) {
-            var stim = stim_a + negative_nonmoral_t2 + stim_b;
+            var stim = stim_a + negative_nonmoral_aitech + stim_b;
           }
         }
         if (assignment_c1 == "mismatch" && assignment_c2 == "moral") {
           if (response_q1 <= 3) {
-            var stim = stim_a + positive_moral_t2 + stim_b;
+            var stim = stim_a + positive_moral_aitech + stim_b;
           }
           if (response_q1 >= 4) {
-            var stim = stim_a + negative_moral_t2 + stim_b;
+            var stim = stim_a + negative_moral_aitech + stim_b;
           }
         }
       }
@@ -472,23 +474,23 @@ const judgment_inst = {
   trial_duration: 20000,
 };
 
-// topic 1
-const judgment_t1 = {
+// topic: insect_food
+const judgment_ifood = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style="font-size:16pt"><b>題材１：昆虫食について</b></p>',
+  stimulus: '<p style="font-size:16pt"><b>題材：昆虫食について</b></p>',
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
 
 // Q1
-const judgment_t1_q1 = {
+const judgment_ifood_q1 = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_q1 + "</p>",
   questions: [
     {
-      prompt: '<p style="text-align:left">' + t1_sentence + "</p>",
-      labels: scale_q1_t1,
-      name: "judgment_t1_q1",
+      prompt: '<p style="text-align:left">' + ifood_sentence + "</p>",
+      labels: scale_q1_ifood,
+      name: "judgment_ifood_q1",
       required: true,
     },
   ],
@@ -497,7 +499,7 @@ const judgment_t1_q1 = {
 };
 
 // Q2
-const judgment_t1_q2 = {
+const judgment_ifood_q2 = {
   type: jsPsychSurveyText,
   preamble: inst_q2,
   questions: [
@@ -505,7 +507,7 @@ const judgment_t1_q2 = {
       prompt:
         "昆虫食についてのあなたの考えを、山口さんに短い文章で自由に伝えてください。<br>（例．あなたが昆虫食に肯定的あるいは否定的な理由）",
       placeholder: "50文字程度で記述してください",
-      name: "judgment_t1_q2",
+      name: "judgment_ifood_q2",
       rows: 3,
       columns: 90,
       required: true,
@@ -515,33 +517,33 @@ const judgment_t1_q2 = {
 };
 
 // waiting period
-var rt_partner_t1 = jsPsych.randomization.randomInt(55000, 65000);
-var time_left_t1 = 5000;
-const hourglass_t1 = {
+var rt_partner_ifood = jsPsych.randomization.randomInt(55000, 65000);
+const hourglass_ifood = {
   type: jsPsychImageKeyboardResponse,
-  stimulus: function () {
-    var rt_participant_t1 = jsPsych.data.get().last(1).values()[0].rt;
-    time_left_t1 = rt_partner_t1 - rt_participant_t1;
-    if (time_left_t1 <= 100) {
-      time_left_t1 = 100;
-    }
-    return img_hourglass;
-  },
-  stimulus_width: 280,
-  stimulus_height: 210,
+  stimulus: img_hourglass,
+  stimulus_width: 240,
+  stimulus_height: 180,
   maintain_aspect_ratio: false,
   render_on_canvas: false,
   prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
-  trial_duration: time_left_t1,
+  trial_duration: function () {
+    var rt_participant_ifood = jsPsych.data.get().last(1).values()[0].rt;
+    if (time_left_ifood <= 100) {
+      time_left_ifood = 100;
+    } else {
+      time_left_ifood = rt_partner_ifood - rt_participant_ifood;
+    }
+    return time_left_ifood;
+  },
   post_trial_gap: 3000,
 };
 
 // result summary
-const summary_t1 = make_summary((topic = insect_food));
+const summary_ifood = make_summary((topic = topic_1));
 
 // follow-up questions
-const followup_inst_t1 = {
+const followup_inst_ifood = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
     "昆虫食についての判断課題は以上で終了です。<br>先に進む前に、今の題材について、いくつか追加の質問に回答してください。<br><u>なお、追加の質問への回答は、山口さんには表示されません。</u><br><br>" +
@@ -575,14 +577,14 @@ const items_mc = [
   "この話題についての<b>あなたの</b>立場は、基本的な善悪についての、あなたの考え方と、どのくらい関係していますか？",
 ];
 
-const mc1_t1 = {
+const mc1_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_mc + "</p>",
   questions: [
     {
       prompt: '<p style="text-align:left">' + items_mc[0] + "</p>",
       labels: scale_mc1,
-      name: "mc1_t1",
+      name: "mc1_ifood",
       required: true,
     },
   ],
@@ -590,14 +592,14 @@ const mc1_t1 = {
   button_label: next_text,
 };
 
-const mc2_t1 = {
+const mc2_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_mc + "</p>",
   questions: [
     {
       prompt: '<p style="text-align:left">' + items_mc[1] + "</p>",
       labels: scale_mc2,
-      name: "mc2_t1",
+      name: "mc2_ifood",
       required: true,
     },
   ],
@@ -605,8 +607,8 @@ const mc2_t1 = {
   button_label: next_text,
 };
 
-const timeline_mc_t1 = jsPsych.randomization.shuffle([mc1_t1, mc2_t1]);
-const mc_blocks_t1 = { timeline: timeline_mc_t1 };
+const timeline_mc_ifood = jsPsych.randomization.shuffle([mc1_ifood, mc2_ifood]);
+const mc_blocks_ifood = { timeline: timeline_mc_ifood };
 
 // follow-up 2 (Perceived moral conviction)
 const items_pmc = [
@@ -614,14 +616,14 @@ const items_pmc = [
   "この話題についての<b>山口さんの</b>立場は、基本的な善悪についての、山口さんの考え方と、どのくらい関係していると思いますか？",
 ];
 
-const pmc1_t1 = {
+const pmc1_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_mc + "</p>",
   questions: [
     {
       prompt: '<p style="text-align:left">' + items_pmc[0] + "</p>",
       labels: scale_mc1,
-      name: "pmc1_t1",
+      name: "pmc1_ifood",
       required: true,
     },
   ],
@@ -629,14 +631,14 @@ const pmc1_t1 = {
   button_label: next_text,
 };
 
-const pmc2_t1 = {
+const pmc2_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_mc + "</p>",
   questions: [
     {
       prompt: '<p style="text-align:left">' + items_pmc[1] + "</p>",
       labels: scale_mc2,
-      name: "pmc2_t1",
+      name: "pmc2_ifood",
       required: true,
     },
   ],
@@ -644,8 +646,11 @@ const pmc2_t1 = {
   button_label: next_text,
 };
 
-const timeline_pmc_t1 = jsPsych.randomization.shuffle([pmc1_t1, pmc2_t1]);
-const pmc_blocks_t1 = { timeline: timeline_pmc_t1 };
+const timeline_pmc_ifood = jsPsych.randomization.shuffle([
+  pmc1_ifood,
+  pmc2_ifood,
+]);
+const pmc_blocks_ifood = { timeline: timeline_pmc_ifood };
 
 // follow-up 3 (interest)
 const inst_interest =
@@ -661,7 +666,7 @@ const scale_interest = [
   "7<br>非常に<br>関心がある",
 ];
 
-const interest_t1 = {
+const interest_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_interest + "</p>",
   questions: [
@@ -671,7 +676,7 @@ const interest_t1 = {
         "あなたは、昆虫食というトピックについて、日常食として取り入れるかどうかは別として、どのくらい関心がありますか？" +
         "</p>",
       labels: scale_interest,
-      name: "interest_t1",
+      name: "interest_ifood",
       required: true,
     },
   ],
@@ -691,7 +696,7 @@ const scale_p_similarity = [
   "5<br>非常によく<br>似ている",
 ];
 
-const p_similarity_t1 = {
+const p_similarity_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_p_similarity + "</p>",
   questions: [
@@ -701,7 +706,7 @@ const p_similarity_t1 = {
         "あなたは、自分と山口さんの意見はどれくらい似ていたと思いますか？" +
         "</p>",
       labels: scale_p_similarity,
-      name: "p_similarity_t1",
+      name: "p_similarity_ifood",
       required: true,
     },
   ],
@@ -723,7 +728,7 @@ const scale_emotionality = [
   "7<br>非常に<br>強い",
 ];
 
-const emotionality_t1 = {
+const emotionality_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_emotionality + "</p>",
   questions: [
@@ -733,7 +738,7 @@ const emotionality_t1 = {
         "このトピックについて、<b>山口さんが抱いている感情</b>は、どのくらい強いものだと思いますか？" +
         "</p>",
       labels: scale_emotionality,
-      name: "emotionality_t1",
+      name: "emotionality_ifood",
       required: true,
     },
   ],
@@ -744,7 +749,7 @@ const emotionality_t1 = {
 // follow-up 6 (TF question)
 const inst_tf = "以下の文を読み、正しい答えを選択してください。";
 
-const tf_t1 = {
+const tf_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_tf + "</p>",
   questions: [
@@ -754,7 +759,7 @@ const tf_t1 = {
         "昆虫食を日常食とすることに対して、山口さんは積極的である。" +
         "</p>",
       labels: ["誤り", "正しい"],
-      name: "tf_t1",
+      name: "tf_ifood",
       required: true,
     },
   ],
@@ -776,7 +781,7 @@ const scale_ac = [
 const inst_ac =
   "以下の質問について、あなたの考えにもっとも近い数字を選んで回答してください。";
 
-const ac_t1 = {
+const ac_ifood = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_ac + "</p>",
   questions: [
@@ -786,7 +791,7 @@ const ac_t1 = {
         "注意確認項目です。この設問には「6」と回答してください。" +
         "</p>",
       labels: scale_ac,
-      name: "ac_t1",
+      name: "ac_ifood",
       required: true,
     },
   ],
@@ -794,46 +799,61 @@ const ac_t1 = {
   button_label: next_text,
 };
 
-const timeline_followup_t1 = jsPsych.randomization.shuffle([
-  mc_blocks_t1,
-  pmc_blocks_t1,
-  interest_t1,
-  p_similarity_t1,
-  emotionality_t1,
-  tf_t1,
-  ac_t1,
-]);
+const followup_ifood = [
+  mc_blocks_ifood,
+  pmc_blocks_ifood,
+  interest_ifood,
+  p_similarity_ifood,
+  emotionality_ifood,
+];
 
-const followup_blocks_t1 = {
-  timeline: timeline_followup_t1,
-};
+const timeline_followup_ifood = jsPsych.randomization.sampleWithoutReplacement(
+  (array = followup_ifood),
+  (sampleSize = 5)
+);
 
-const followup_end_t1 = {
+timeline_followup_ifood.splice(2, 0, tf_ifood);
+timeline_followup_ifood.splice(5, 0, ac_ifood);
+
+const followup_end_ifood = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "追加の質問は以上です。<br>次のページから、題材２に移ります。<br><br>" +
+    "追加の質問は以上です。<br><br>" +
     '<font color="#c00000">※5秒後に、自動的に次のページに移動します。</font>',
   choices: "NO_KEYS",
   trial_duration: 5000,
 };
 
-// topic 2
-const judgment_t2 = {
+// save as a block
+const block_ifood = {
+  timeline: [
+    judgment_ifood,
+    judgment_ifood_q1,
+    judgment_ifood_q2,
+    hourglass_ifood,
+    summary_ifood,
+    timeline_followup_ifood,
+    followup_end_ifood,
+  ],
+};
+
+// topic 2: AI technology
+const judgment_aitech = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style="font-size:16pt"><b>題材２：AI技術について</b></p>',
+  stimulus: '<p style="font-size:16pt"><b>題材：AI技術について</b></p>',
   choices: "NO_KEYS",
   trial_duration: 3000,
 };
 
 // Q1
-const judgment_t2_q1 = {
+const judgment_aitech_q1 = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_q1 + "</p>",
   questions: [
     {
-      prompt: '<p style="text-align:left">' + t2_sentence + "</p>",
-      labels: scale_q1_t2,
-      name: "judgment_t2_q1",
+      prompt: '<p style="text-align:left">' + aitech_sentence + "</p>",
+      labels: scale_q1_aitech,
+      name: "judgment_aitech_q1",
       required: true,
     },
   ],
@@ -842,7 +862,7 @@ const judgment_t2_q1 = {
 };
 
 // Q2
-const judgment_t2_q2 = {
+const judgment_aitech_q2 = {
   type: jsPsychSurveyText,
   preamble: inst_q2,
   questions: [
@@ -850,7 +870,7 @@ const judgment_t2_q2 = {
       prompt:
         "AI技術についてのあなたの考えを、山口さんに短い文章で自由に伝えてください。<br>（例．あなたがAI技術に肯定的あるいは否定的な理由）",
       placeholder: "50文字程度で記述してください",
-      name: "judgment_t2_q2",
+      name: "judgment_aitech_q2",
       rows: 3,
       columns: 90,
       required: true,
@@ -860,33 +880,33 @@ const judgment_t2_q2 = {
 };
 
 // waiting period
-var rt_partner_t2 = jsPsych.randomization.randomInt(55000, 65000);
-var time_left_t2 = 5000;
-const hourglass_t2 = {
+var rt_partner_aitech = jsPsych.randomization.randomInt(55000, 65000);
+const hourglass_aitech = {
   type: jsPsychImageKeyboardResponse,
-  stimulus: function () {
-    var rt_participant_t2 = jsPsych.data.get().last(1).values()[0].rt;
-    time_left_t2 = rt_partner_t2 - rt_participant_t2;
-    if (time_left_t2 <= 100) {
-      time_left_t2 = 100;
-    }
-    return img_hourglass;
-  },
-  stimulus_width: 280,
-  stimulus_height: 210,
+  stimulus: img_hourglass,
+  stimulus_width: 240,
+  stimulus_height: 180,
   maintain_aspect_ratio: false,
   render_on_canvas: false,
   prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
-  trial_duration: time_left_t2,
+  trial_duration: function () {
+    var rt_participant_aitech = jsPsych.data.get().last(1).values()[0].rt;
+    if (time_left_aitech <= 100) {
+      time_left_aitech = 100;
+    } else {
+      time_left_aitech = rt_partner_aitech - rt_participant_aitech;
+    }
+    return time_left_aitech;
+  },
   post_trial_gap: 3000,
 };
 
 // result summary
-const summary_t2 = make_summary((topic = ai_tech));
+const summary_aitech = make_summary((topic = topic_2));
 
 // follow-up questions
-const followup_inst_t2 = {
+const followup_inst_aitech = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
     "AI技術についての判断課題は以上で終了です。<br>先に進む前に、今の題材について、いくつか追加の質問に回答してください。<br><u>なお、追加の質問への回答は、山口さんには表示されません。</u><br><br>" +
@@ -896,14 +916,14 @@ const followup_inst_t2 = {
 };
 
 // follow-up 1 (Moral conviction)
-const mc1_t2 = {
+const mc1_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_mc + "</p>",
   questions: [
     {
       prompt: '<p style="text-align:left">' + items_mc[0] + "</p>",
       labels: scale_mc1,
-      name: "mc1_t2",
+      name: "mc1_aitech",
       required: true,
     },
   ],
@@ -911,14 +931,14 @@ const mc1_t2 = {
   button_label: next_text,
 };
 
-const mc2_t2 = {
+const mc2_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_mc + "</p>",
   questions: [
     {
       prompt: '<p style="text-align:left">' + items_mc[1] + "</p>",
       labels: scale_mc2,
-      name: "mc2_t2",
+      name: "mc2_aitech",
       required: true,
     },
   ],
@@ -926,18 +946,21 @@ const mc2_t2 = {
   button_label: next_text,
 };
 
-const timeline_mc_t2 = jsPsych.randomization.shuffle([mc1_t2, mc2_t2]);
-const mc_blocks_t2 = { timeline: timeline_mc_t2 };
+const timeline_mc_aitech = jsPsych.randomization.shuffle([
+  mc1_aitech,
+  mc2_aitech,
+]);
+const mc_blocks_aitech = { timeline: timeline_mc_aitech };
 
 // follow-up 2 (Perceived moral conviction)
-const pmc1_t2 = {
+const pmc1_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_mc + "</p>",
   questions: [
     {
       prompt: '<p style="text-align:left">' + items_pmc[0] + "</p>",
       labels: scale_mc1,
-      name: "pmc1_t2",
+      name: "pmc1_aitech",
       required: true,
     },
   ],
@@ -945,14 +968,14 @@ const pmc1_t2 = {
   button_label: next_text,
 };
 
-const pmc2_t2 = {
+const pmc2_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_mc + "</p>",
   questions: [
     {
       prompt: '<p style="text-align:left">' + items_pmc[1] + "</p>",
       labels: scale_mc2,
-      name: "pmc2_t2",
+      name: "pmc2_aitech",
       required: true,
     },
   ],
@@ -960,11 +983,14 @@ const pmc2_t2 = {
   button_label: next_text,
 };
 
-const timeline_pmc_t2 = jsPsych.randomization.shuffle([pmc1_t2, pmc2_t2]);
-const pmc_blocks_t2 = { timeline: timeline_pmc_t2 };
+const timeline_pmc_aitech = jsPsych.randomization.shuffle([
+  pmc1_aitech,
+  pmc2_aitech,
+]);
+const pmc_blocks_aitech = { timeline: timeline_pmc_aitech };
 
 // follow-up 3 (interest)
-const interest_t2 = {
+const interest_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_interest + "</p>",
   questions: [
@@ -974,7 +1000,7 @@ const interest_t2 = {
         "あなたは、AI技術というトピックについて、自身の生活に取り入れるかどうかは別として、どのくらい関心がありますか？" +
         "</p>",
       labels: scale_interest,
-      name: "interest_t2",
+      name: "interest_aitech",
       required: true,
     },
   ],
@@ -983,7 +1009,7 @@ const interest_t2 = {
 };
 
 // follow-up 4 (perceived similarity)
-const p_similarity_t2 = {
+const p_similarity_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_p_similarity + "</p>",
   questions: [
@@ -993,7 +1019,7 @@ const p_similarity_t2 = {
         "あなたは、自分と山口さんの意見はどれくらい似ていたと思いますか？" +
         "</p>",
       labels: scale_p_similarity,
-      name: "p_similarity_t2",
+      name: "p_similarity_aitech",
       required: true,
     },
   ],
@@ -1002,7 +1028,7 @@ const p_similarity_t2 = {
 };
 
 // follow-up 5 (emotionality)
-const emotionality_t2 = {
+const emotionality_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_emotionality + "</p>",
   questions: [
@@ -1012,7 +1038,7 @@ const emotionality_t2 = {
         "このトピックについて、<b>山口さんが抱いている感情</b>は、どのくらい強いものだと思いますか？" +
         "</p>",
       labels: scale_emotionality,
-      name: "emotionality_t2",
+      name: "emotionality_aitech",
       required: true,
     },
   ],
@@ -1021,7 +1047,7 @@ const emotionality_t2 = {
 };
 
 // follow-up 6 (TF question)
-const tf_t2 = {
+const tf_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_tf + "</p>",
   questions: [
@@ -1031,7 +1057,7 @@ const tf_t2 = {
         "AI技術を日常生活に取り入れることに対して、山口さんは積極的である。" +
         "</p>",
       labels: ["誤り", "正しい"],
-      name: "tf_t2",
+      name: "tf_aitech",
       required: true,
     },
   ],
@@ -1040,7 +1066,7 @@ const tf_t2 = {
 };
 
 // follow-up 7 (attention checks)
-const ac_t2 = {
+const ac_aitech = {
   type: jsPsychSurveyLikert,
   preamble: '<p style="text-align:left">' + inst_ac + "</p>",
   questions: [
@@ -1050,7 +1076,7 @@ const ac_t2 = {
         "注意確認項目です。この設問には「3」と回答してください。" +
         "</p>",
       labels: scale_ac,
-      name: "ac_t2",
+      name: "ac_aitech",
       required: true,
     },
   ],
@@ -1058,24 +1084,49 @@ const ac_t2 = {
   button_label: next_text,
 };
 
-const timeline_followup_t2 = jsPsych.randomization.shuffle([
-  mc_blocks_t2,
-  pmc_blocks_t2,
-  interest_t2,
-  p_similarity_t2,
-  emotionality_t2,
-  tf_t2,
-  ac_t2,
-]);
+const followup_aitech = [
+  mc_blocks_aitech,
+  pmc_blocks_aitech,
+  interest_aitech,
+  p_similarity_aitech,
+  emotionality_aitech,
+];
 
-const followup_blocks_t2 = {
-  timeline: timeline_followup_t2,
-};
+const timeline_followup_aitech = jsPsych.randomization.sampleWithoutReplacement(
+  (array = followup_aitech),
+  (sampleSize = 5)
+);
 
-const followup_end_t2 = {
+timeline_followup_ifood.splice(2, 0, tf_aitech);
+timeline_followup_ifood.splice(5, 0, ac_aitech);
+
+const followup_end_aitech = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "追加の質問は以上です。<br>また、以上で「判断課題」は終了です。<br><br>" +
+    "追加の質問は以上です。" +
+    '<font color="#c00000">※5秒後に、自動的に次のページに移動します。</font>',
+  choices: "NO_KEYS",
+  trial_duration: 5000,
+};
+
+// save as a block
+const block_aitech = {
+  timeline: [
+    judgment_aitech,
+    judgment_aitech_q1,
+    judgment_aitech_q2,
+    hourglass_aitech,
+    summary_aitech,
+    timeline_followup_aitech,
+    followup_end_aitech,
+  ],
+};
+
+// judgment task end
+const judgment_task_end = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus:
+    "以上で「判断課題」は終了です。" +
     '<font color="#c00000">※5秒後に、自動的に次のページに移動します。</font>',
   choices: "NO_KEYS",
   trial_duration: 5000,
@@ -1091,6 +1142,19 @@ const srg_inst = {
   trial_duration: 10000,
 };
 
+const scale_srg = [
+  "1<br>全く<br>そう思わない",
+  "2",
+  "3",
+  "4<br>どちらとも<br>言えない",
+  "5",
+  "6",
+  "7<br>非常に強く<br>そう思う",
+];
+
+const inst_srg =
+  "以下の文は、あなたの考えにどの程度あてはまりますか。あなたの考えにもっとも近い数字を選んで回答してください。";
+
 const items_srg = [
   "私たちは、世の中のさまざまな事柄について似た考えを持っていると思う。",
   "私たちは、互いによく似た世界観の中で生きていると思う。",
@@ -1101,8 +1165,6 @@ const items_srg = [
   "私たちは、互いにまったくの別世界で生きていると思う。",
   "私たちは、何事についても、互いに分かり合えることはないと思う。",
   "私たちは、互いにまったく異なる価値観を持っていると思う。",
-  // attention check
-  "注意確認項目です。この設問には「2」と回答してください。",
 ];
 
 const names_srg = [
@@ -1114,7 +1176,6 @@ const names_srg = [
   "srg6",
   "srg7",
   "srg8",
-  "srg_ac",
 ];
 
 // create blocks
@@ -1128,12 +1189,33 @@ for (var i = 0; i < items_srg.length; i++) {
     (order = order_srg),
     (start = i + 1),
     (end = i + 1),
-    (scale = scale_general),
+    (scale = scale_srg),
     (names = names_srg)
   );
-  srg_block[i] = make_block((inst = inst_general), (qs = qs_srg[i]));
+  srg_block[i] = make_block((inst = inst_srg), (qs = qs_srg[i]));
   timeline_srg.push(srg_block[i]);
 }
+
+// srg: attention check
+const srg_ac = {
+  type: jsPsychSurveyLikert,
+  preamble: '<p style="text-align:left">' + inst_srg + "</p>",
+  questions: [
+    {
+      prompt:
+        '<p style="text-align:left">' +
+        "注意確認項目です。この設問には「2」と回答してください。" +
+        "</p>",
+      labels: scale_srg,
+      name: "srg_ac",
+      required: true,
+    },
+  ],
+  randomize_question_order: false,
+  button_label: next_text,
+};
+
+timeline_srg.splice(4, 0, srg_ac);
 
 const srg_blocks = {
   timeline: timeline_srg,
@@ -1141,10 +1223,16 @@ const srg_blocks = {
 
 // waiting period
 var rt_partner = jsPsych.randomization.randomInt(40000, 50000);
-var time_left = 5000;
 const hourglass3 = {
   type: jsPsychImageKeyboardResponse,
-  stimulus: function () {
+  stimulus: img_hourglass,
+  stimulus_width: 240,
+  stimulus_height: 180,
+  maintain_aspect_ratio: false,
+  render_on_canvas: false,
+  prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
+  choices: "NO_KEYS",
+  trial_duration: function () {
     var rtp_1 = jsPsych.data.get().last(1).values()[0].rt;
     var rtp_2 = jsPsych.data.get().last(2).values()[0].rt;
     var rtp_3 = jsPsych.data.get().last(3).values()[0].rt;
@@ -1156,19 +1244,13 @@ const hourglass3 = {
     var rtp_9 = jsPsych.data.get().last(9).values()[0].rt;
     var rt_participant =
       rtp_1 + rtp_2 + rtp_3 + rtp_4 + rtp_5 + rtp_6 + rtp_7 + rtp_8 + rtp_9;
-    time_left = rt_partner - rt_participant;
     if (time_left <= 100) {
-      time_left = 100;
+      var time_left = 100;
+    } else {
+      var time_left = rt_partner - rt_participant;
     }
-    return img_hourglass;
+    return time_left;
   },
-  stimulus_width: 280,
-  stimulus_height: 210,
-  maintain_aspect_ratio: false,
-  render_on_canvas: false,
-  prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
-  choices: "NO_KEYS",
-  trial_duration: time_left,
   post_trial_gap: 3000,
 };
 
@@ -1181,6 +1263,19 @@ const dv_inst = {
   choices: "NO_KEYS",
   trial_duration: 20000,
 };
+
+const scale_dv = [
+  "1<br>全く<br>そう思わない",
+  "2",
+  "3",
+  "4<br>どちらとも<br>言えない",
+  "5",
+  "6",
+  "7<br>非常に強く<br>そう思う",
+];
+
+const inst_dv =
+  "以下の文は、あなたの考えにどの程度あてはまりますか。あなたの考えにもっとも近い数字を選んで回答してください。";
 
 const items_dv = [
   "私たちは、これから会話するトピックについて、似た意見を持っている気がする。",
@@ -1210,10 +1305,10 @@ for (var i = 0; i < items_dv.length; i++) {
     (order = order_dv),
     (start = i + 1),
     (end = i + 1),
-    (scale = scale_general),
+    (scale = scale_dv),
     (names = names_dv)
   );
-  dv_block[i] = make_block((inst = inst_general), (qs = qs_dv[i]));
+  dv_block[i] = make_block((inst = inst_dv), (qs = qs_dv[i]));
   timeline_dv.push(dv_block[i]);
 }
 
@@ -1233,7 +1328,7 @@ const complete = {
   trial_duration: 20000,
 };
 
-// timeline
+// timeline (counterbalance)
 const questionnaire = {
   timeline: [
     preload,
@@ -1246,22 +1341,9 @@ const questionnaire = {
     nickname_self,
     nickname_info,
     judgment_inst,
-    judgment_t1,
-    judgment_t1_q1,
-    judgment_t1_q2,
-    hourglass_t1,
-    summary_t1,
-    followup_inst_t1,
-    followup_blocks_t1,
-    followup_end_t1,
-    judgment_t2,
-    judgment_t2_q1,
-    judgment_t2_q2,
-    hourglass_t2,
-    summary_t2,
-    followup_inst_t2,
-    followup_blocks_t2,
-    followup_end_t2,
+    block_ifood,
+    block_aitech,
+    judgment_task_end,
     srg_inst,
     srg_blocks,
     hourglass3,
