@@ -531,9 +531,11 @@ const hourglass_ifood = {
     var rt_participant_ifood = jsPsych.data.get().last(1).values()[0].rt;
     console.log(rt_participant_ifood);
     if (time_left_ifood <= 100) {
-      time_left_ifood = 100;
+      var time_left_ifood = 100;
+      console.log(time_left_ifood);
     } else {
-      time_left_ifood = rt_partner_ifood - rt_participant_ifood;
+      var time_left_ifood = rt_partner_ifood - rt_participant_ifood;
+      console.log(time_left_ifood);
     }
     return time_left_ifood;
   },
@@ -895,9 +897,11 @@ const hourglass_aitech = {
     var rt_participant_aitech = jsPsych.data.get().last(1).values()[0].rt;
     console.log(rt_participant_aitech);
     if (time_left_aitech <= 100) {
-      time_left_aitech = 100;
+      var time_left_aitech = 100;
+      console.log(time_left_aitech);
     } else {
-      time_left_aitech = rt_partner_aitech - rt_participant_aitech;
+      var time_left_aitech = rt_partner_aitech - rt_participant_aitech;
+      console.log(time_left_aitech);
     }
     return time_left_aitech;
   },
@@ -1257,8 +1261,10 @@ const hourglass3 = {
       rtp_1 + rtp_2 + rtp_3 + rtp_4 + rtp_5 + rtp_6 + rtp_7 + rtp_8 + rtp_9;
     if (time_left <= 100) {
       var time_left = 100;
+      console.log(time_left);
     } else {
       var time_left = rt_partner - rt_participant;
+      console.log(time_left);
     }
     return time_left;
   },
