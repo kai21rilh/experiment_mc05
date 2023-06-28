@@ -2,7 +2,7 @@
 const jsPsych = initJsPsych({
   display_element: "display_stage",
   experiment_width: 1100,
-  default_iti: 500,
+  default_iti: 400,
   on_finish: function () {
     var datajs = jsPsych.data.get().json();
     Qualtrics.SurveyEngine.setEmbeddedData("pw", password);
@@ -110,6 +110,7 @@ const sex = {
       required: true,
     },
   ],
+  scale_width: 600,
   randomize_question_order: false,
   button_label: next_text,
 };
@@ -201,6 +202,7 @@ const nickname_self = {
       required: true,
     },
   ],
+  scale_width: 800,
   randomize_question_order: false,
   button_label: next_text,
   post_trial_gap: 1000,
@@ -288,28 +290,28 @@ const ai_tech =
 
 // condition
 const positive_nonmoral_t1 =
-  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがあり、味がとても美味しかったので、もし日常的に食べられるなら、ぜひそうしたいと思います。";
+  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>6（絶対に購入したい）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがあり、味がとても美味しかったので、もし日常的に食べられるなら、ぜひそうしたいと思います。";
 
 const positive_moral_t1 =
-  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>やがて来る食糧難の未来において、昆虫食は人々の義務となるでしょうから、今から積極的に取り入れていくべきだと思います。";
+  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>6（絶対に購入したい）<br><u>Q2. 自由記述：</u><br>やがて来る食糧難の未来において、昆虫食は人々の義務となるでしょうから、今から積極的に取り入れていくべきだと思います。";
 
 const negative_nonmoral_t1 =
-  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがありますが、味がまったく好みではなかったので、機会があっても、もう食べたいとは思いません。";
+  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>1（絶対に購入したくない）<br><u>Q2. 自由記述：</u><br>以前に昆虫食を実際に体験したことがありますが、味がまったく好みではなかったので、機会があっても、もう食べたいとは思いません。";
 
 const negative_moral_t1 =
-  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>他に食べられるものが色々あるのに、よりによって「虫」を食べるなんて、爬虫類ではないのですから、人間として間違っていると思います。";
+  "<u>Q1. 昆虫食を日常食として購入したい？：</u><br>1（絶対に購入したくない）<br><u>Q2. 自由記述：</u><br>他に食べられるものが色々あるのに、よりによって「虫」を食べるなんて、爬虫類ではないのですから、人間として間違っていると思います。";
 
 const positive_nonmoral_t2 =
-  "<u>Q1. AI技術を取り入れたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>AI技術は色々な仕事にかかる時間を短縮してくれて、効率化が図れるので、ぜひ自分の生活に積極的に取り入れていきたいと思います。";
+  "<u>Q1. AI技術を取り入れたい？：</u><br>6（絶対に取り入れたい）<br><u>Q2. 自由記述：</u><br>AI技術は色々な仕事にかかる時間を短縮してくれて、効率化が図れるので、ぜひ自分の生活に積極的に取り入れていきたいと思います。";
 
 const positive_moral_t2 =
-  "<u>Q1. AI技術を取り入れたい？：</u><br>6（非常によく当てはまる）<br><u>Q2. 自由記述：</u><br>AI技術に適応できない人々は、やがて社会から淘汰されていくでしょう。今からこうした技術に慣れておくのは、私たちの責務だと思います。";
+  "<u>Q1. AI技術を取り入れたい？：</u><br>6（絶対に取り入れたい）<br><u>Q2. 自由記述：</u><br>AI技術に適応できない人々は、やがて社会から淘汰されていくでしょう。今からこうした技術に慣れておくのは、私たちの責務だと思います。";
 
 const negative_nonmoral_t2 =
-  "<u>Q1. AI技術を取り入れたい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>AI技術は確かに便利なのかもしれませんが、私としては、自分で考えて手を動かす時間をとることが好きなので、特に魅力を感じません。";
+  "<u>Q1. AI技術を取り入れたい？：</u><br>1（絶対に取り入れたくない）<br><u>Q2. 自由記述：</u><br>AI技術は確かに便利なのかもしれませんが、私としては、自分で考えて手を動かす時間をとることが好きなので、特に魅力を感じません。";
 
 const negative_moral_t2 =
-  "<u>Q1. AI技術を取り入れたい？：</u><br>1（全く当てはまらない）<br><u>Q2. 自由記述：</u><br>AI技術は、私たちを依存させる麻薬のようなものです。決して頼ってはいけません。でないと、やがて自分で考える力が奪われてしまいます。";
+  "<u>Q1. AI技術を取り入れたい？：</u><br>1（絶対に取り入れたくない）<br><u>Q2. 自由記述：</u><br>AI技術は、私たちを依存させる麻薬のようなものです。決して頼ってはいけません。でないと、やがて自分で考える力が奪われてしまいます。";
 
 // manipulation
 // define levels
@@ -519,9 +521,9 @@ const hourglass_t1 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: function () {
     var rt_participant_t1 = jsPsych.data.get().last(1).values()[0].rt;
-    var time_left_t1 = rt_partner_t1 - rt_participant_t1;
+    time_left_t1 = rt_partner_t1 - rt_participant_t1;
     if (time_left_t1 <= 100) {
-      var time_left_t1 = 100;
+      time_left_t1 = 100;
     }
     return img_hourglass;
   },
@@ -864,9 +866,9 @@ const hourglass_t2 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: function () {
     var rt_participant_t2 = jsPsych.data.get().last(1).values()[0].rt;
-    var time_left_t2 = rt_partner_t2 - rt_participant_t2;
+    time_left_t2 = rt_partner_t2 - rt_participant_t2;
     if (time_left_t2 <= 100) {
-      var time_left_t2 = 100;
+      time_left_t2 = 100;
     }
     return img_hourglass;
   },
@@ -1154,9 +1156,9 @@ const hourglass3 = {
     var rtp_9 = jsPsych.data.get().last(9).values()[0].rt;
     var rt_participant =
       rtp_1 + rtp_2 + rtp_3 + rtp_4 + rtp_5 + rtp_6 + rtp_7 + rtp_8 + rtp_9;
-    var time_left = rt_partner - rt_participant;
+    time_left = rt_partner - rt_participant;
     if (time_left <= 100) {
-      var time_left = 100;
+      time_left = 100;
     }
     return img_hourglass;
   },
