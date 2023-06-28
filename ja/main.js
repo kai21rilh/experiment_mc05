@@ -81,7 +81,7 @@ const age = {
   questions: [
     {
       prompt: "あなたの年齢について回答してください。",
-      placeholder: "半角数字のみ",
+      placeholder: "半角数字のみ（例．40）",
       name: "age",
       columns: 30,
       required: true,
@@ -506,7 +506,7 @@ const judgment_ifood_q2 = {
     {
       prompt:
         "昆虫食についてのあなたの考えを、山口さんに短い文章で自由に伝えてください。<br>（例．あなたが昆虫食に肯定的あるいは否定的な理由）",
-      placeholder: "50文字程度で記述してください",
+      placeholder: "この枠内に1行～1行半程度で記述してください",
       name: "judgment_ifood_q2",
       rows: 3,
       columns: 90,
@@ -529,8 +529,8 @@ const hourglass_ifood = {
   choices: "NO_KEYS",
   trial_duration: function () {
     var rt_participant_ifood = jsPsych.data.get().last(1).values()[0].rt;
-    if (time_left_ifood <= 100) {
-      var time_left_ifood = 100;
+    if (time_left_ifood < 1) {
+      var time_left_ifood = 1;
     } else {
       var time_left_ifood = rt_partner_ifood - rt_participant_ifood;
     }
@@ -874,7 +874,7 @@ const judgment_aitech_q2 = {
     {
       prompt:
         "AI技術についてのあなたの考えを、山口さんに短い文章で自由に伝えてください。<br>（例．あなたがAI技術に肯定的あるいは否定的な理由）",
-      placeholder: "50文字程度で記述してください",
+      placeholder: "この枠内に1行～1行半程度で記述してください",
       name: "judgment_aitech_q2",
       rows: 3,
       columns: 90,
@@ -897,8 +897,8 @@ const hourglass_aitech = {
   choices: "NO_KEYS",
   trial_duration: function () {
     var rt_participant_aitech = jsPsych.data.get().last(1).values()[0].rt;
-    if (time_left_aitech <= 100) {
-      var time_left_aitech = 100;
+    if (time_left_aitech < 1) {
+      var time_left_aitech = 1;
     } else {
       var time_left_aitech = rt_partner_aitech - rt_participant_aitech;
     }
@@ -1254,8 +1254,8 @@ const hourglass3 = {
     var rtp_9 = jsPsych.data.get().last(9).values()[0].rt;
     var rt_participant =
       rtp_1 + rtp_2 + rtp_3 + rtp_4 + rtp_5 + rtp_6 + rtp_7 + rtp_8 + rtp_9;
-    if (time_left <= 100) {
-      var time_left = 100;
+    if (time_left < 1) {
+      var time_left = 1;
     } else {
       var time_left = rt_partner - rt_participant;
     }
