@@ -517,7 +517,7 @@ const judgment_ifood_q2 = {
 };
 
 // waiting period
-var rt_partner_ifood = jsPsych.randomization.randomInt(55000, 65000);
+const rt_partner_ifood = jsPsych.randomization.randomInt(55000, 65000);
 const hourglass_ifood = {
   type: jsPsychImageKeyboardResponse,
   stimulus: img_hourglass,
@@ -528,7 +528,8 @@ const hourglass_ifood = {
   prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
   trial_duration: function () {
-    var rt_participant_ifood = jsPsych.data.get().last(1).values().rt;
+    var rt_participant_ifood = jsPsych.data.get().last(1).values()[0].rt;
+    console.log(rt_participant_ifood);
     if (time_left_ifood <= 100) {
       time_left_ifood = 100;
     } else {
@@ -880,7 +881,7 @@ const judgment_aitech_q2 = {
 };
 
 // waiting period
-var rt_partner_aitech = jsPsych.randomization.randomInt(55000, 65000);
+const rt_partner_aitech = jsPsych.randomization.randomInt(55000, 65000);
 const hourglass_aitech = {
   type: jsPsychImageKeyboardResponse,
   stimulus: img_hourglass,
@@ -891,7 +892,8 @@ const hourglass_aitech = {
   prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
   trial_duration: function () {
-    var rt_participant_aitech = jsPsych.data.get().last(1).values().rt;
+    var rt_participant_aitech = jsPsych.data.get().last(1).values()[0].rt;
+    console.log(rt_participant_aitech);
     if (time_left_aitech <= 100) {
       time_left_aitech = 100;
     } else {
@@ -1222,7 +1224,7 @@ const srg_blocks = {
 };
 
 // waiting period
-var rt_partner = jsPsych.randomization.randomInt(40000, 50000);
+const rt_partner = jsPsych.randomization.randomInt(40000, 50000);
 const hourglass3 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: img_hourglass,
@@ -1233,15 +1235,24 @@ const hourglass3 = {
   prompt: "<p>現在、山口さんが回答中です。しばらくお待ちください・・・</p>",
   choices: "NO_KEYS",
   trial_duration: function () {
-    var rtp_1 = jsPsych.data.get().last(1).values().rt;
-    var rtp_2 = jsPsych.data.get().last(2).values().rt;
-    var rtp_3 = jsPsych.data.get().last(3).values().rt;
-    var rtp_4 = jsPsych.data.get().last(4).values().rt;
-    var rtp_5 = jsPsych.data.get().last(5).values().rt;
-    var rtp_6 = jsPsych.data.get().last(6).values().rt;
-    var rtp_7 = jsPsych.data.get().last(7).values().rt;
-    var rtp_8 = jsPsych.data.get().last(8).values().rt;
-    var rtp_9 = jsPsych.data.get().last(9).values().rt;
+    var rtp_1 = jsPsych.data.get().last(1).values()[0].rt;
+    var rtp_2 = jsPsych.data.get().last(2).values()[0].rt;
+    var rtp_3 = jsPsych.data.get().last(3).values()[0].rt;
+    var rtp_4 = jsPsych.data.get().last(4).values()[0].rt;
+    var rtp_5 = jsPsych.data.get().last(5).values()[0].rt;
+    var rtp_6 = jsPsych.data.get().last(6).values()[0].rt;
+    var rtp_7 = jsPsych.data.get().last(7).values()[0].rt;
+    var rtp_8 = jsPsych.data.get().last(8).values()[0].rt;
+    var rtp_9 = jsPsych.data.get().last(9).values()[0].rt;
+    console.log(rtp_1);
+    console.log(rtp_2);
+    console.log(rtp_3);
+    console.log(rtp_4);
+    console.log(rtp_5);
+    console.log(rtp_6);
+    console.log(rtp_7);
+    console.log(rtp_8);
+    console.log(rtp_9);
     var rt_participant =
       rtp_1 + rtp_2 + rtp_3 + rtp_4 + rtp_5 + rtp_6 + rtp_7 + rtp_8 + rtp_9;
     if (time_left <= 100) {
