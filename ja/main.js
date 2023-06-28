@@ -608,7 +608,6 @@ const mc2_ifood = {
 };
 
 const timeline_mc_ifood = jsPsych.randomization.shuffle([mc1_ifood, mc2_ifood]);
-const mc_blocks_ifood = { timeline: timeline_mc_ifood };
 
 // follow-up 2 (Perceived moral conviction)
 const items_pmc = [
@@ -650,7 +649,6 @@ const timeline_pmc_ifood = jsPsych.randomization.shuffle([
   pmc1_ifood,
   pmc2_ifood,
 ]);
-const pmc_blocks_ifood = { timeline: timeline_pmc_ifood };
 
 // follow-up 3 (interest)
 const inst_interest =
@@ -800,8 +798,8 @@ const ac_ifood = {
 };
 
 const followup_ifood = [
-  mc_blocks_ifood,
-  pmc_blocks_ifood,
+  timeline_mc_ifood,
+  timeline_pmc_ifood,
   interest_ifood,
   p_similarity_ifood,
   emotionality_ifood,
@@ -832,6 +830,7 @@ const block_ifood = {
     judgment_ifood_q2,
     hourglass_ifood,
     summary_ifood,
+    followup_inst_ifood,
     timeline_followup_ifood,
     followup_end_ifood,
   ],
@@ -950,7 +949,6 @@ const timeline_mc_aitech = jsPsych.randomization.shuffle([
   mc1_aitech,
   mc2_aitech,
 ]);
-const mc_blocks_aitech = { timeline: timeline_mc_aitech };
 
 // follow-up 2 (Perceived moral conviction)
 const pmc1_aitech = {
@@ -987,7 +985,6 @@ const timeline_pmc_aitech = jsPsych.randomization.shuffle([
   pmc1_aitech,
   pmc2_aitech,
 ]);
-const pmc_blocks_aitech = { timeline: timeline_pmc_aitech };
 
 // follow-up 3 (interest)
 const interest_aitech = {
@@ -1085,8 +1082,8 @@ const ac_aitech = {
 };
 
 const followup_aitech = [
-  mc_blocks_aitech,
-  pmc_blocks_aitech,
+  timeline_mc_aitech,
+  timeline_pmc_aitech,
   interest_aitech,
   p_similarity_aitech,
   emotionality_aitech,
@@ -1117,6 +1114,7 @@ const block_aitech = {
     judgment_aitech_q2,
     hourglass_aitech,
     summary_aitech,
+    followup_inst_aitech,
     timeline_followup_aitech,
     followup_end_aitech,
   ],
