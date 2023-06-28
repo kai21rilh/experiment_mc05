@@ -1329,26 +1329,58 @@ const complete = {
 };
 
 // timeline (counterbalance)
-const questionnaire = {
-  timeline: [
-    preload,
-    intro,
-    age,
-    sex,
-    ideology_blocks,
-    pairing_start,
-    hourglass,
-    nickname_self,
-    nickname_info,
-    judgment_inst,
-    block_ifood,
-    block_aitech,
-    judgment_task_end,
-    srg_inst,
-    srg_blocks,
-    hourglass3,
-    dv_inst,
-    dv_blocks,
-    complete,
-  ],
+const define_timeline = function () {
+  if (topic_1 == "insect_food") {
+    new_timeline = {
+      timeline: [
+        preload,
+        intro,
+        age,
+        sex,
+        ideology_blocks,
+        pairing_start,
+        hourglass,
+        nickname_self,
+        nickname_info,
+        judgment_inst,
+        block_ifood,
+        block_aitech,
+        judgment_task_end,
+        srg_inst,
+        srg_blocks,
+        hourglass3,
+        dv_inst,
+        dv_blocks,
+        complete,
+      ],
+    };
+  }
+  if (topic_1 == "ai_tech") {
+    new_timeline = {
+      timeline: [
+        preload,
+        intro,
+        age,
+        sex,
+        ideology_blocks,
+        pairing_start,
+        hourglass,
+        nickname_self,
+        nickname_info,
+        judgment_inst,
+        block_aitech,
+        block_ifood,
+        judgment_task_end,
+        srg_inst,
+        srg_blocks,
+        hourglass3,
+        dv_inst,
+        dv_blocks,
+        complete,
+      ],
+    };
+  }
+  return new_timeline;
 };
+
+const questionnaire = define_timeline();
