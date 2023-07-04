@@ -70,7 +70,8 @@ const preload = {
 const intro = {
   type: jsPsychFullscreen,
   fullscreen_mode: true,
-  message: "サーバーへの接続が完了しました。実験を開始します。",
+  message:
+    "<p>サーバーへの接続が完了しました。実験を開始します。<br><br>下のボタンを押して、先に進んでください。</p>",
   trial_duration: 3000,
 };
 
