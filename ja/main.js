@@ -68,9 +68,9 @@ const preload = {
 
 // introduction
 const intro = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: "サーバーへの接続が完了しました。実験を開始します。",
-  choices: "NO_KEYS",
+  type: jsPsychFullscreen,
+  fullscreen_mode: true,
+  message: "サーバーへの接続が完了しました。実験を開始します。",
   trial_duration: 3000,
 };
 
@@ -1338,12 +1338,18 @@ const complete = {
   trial_duration: 20000,
 };
 
+// exit full-screen mode
+const exit_fs = {
+  type: jsPsychFullscreen,
+  fullscreen_mode: false,
+  delay_after: 0,
+};
+
 // timeline (counterbalance)
 const define_timeline = function () {
   if (topic_1 == "insect_food") {
     new_timeline = {
       timeline: [
-        preload,
         intro,
         age,
         sex,
@@ -1362,13 +1368,13 @@ const define_timeline = function () {
         dv_inst,
         dv_blocks,
         complete,
+        exit_fs,
       ],
     };
   }
   if (topic_1 == "ai_tech") {
     new_timeline = {
       timeline: [
-        preload,
         intro,
         age,
         sex,
@@ -1387,6 +1393,7 @@ const define_timeline = function () {
         dv_inst,
         dv_blocks,
         complete,
+        exit_fs,
       ],
     };
   }
