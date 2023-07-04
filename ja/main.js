@@ -1351,6 +1351,7 @@ const define_timeline = function () {
   if (topic_1 == "insect_food") {
     new_timeline = {
       timeline: [
+        preload,
         intro,
         age,
         sex,
@@ -1376,6 +1377,7 @@ const define_timeline = function () {
   if (topic_1 == "ai_tech") {
     new_timeline = {
       timeline: [
+        preload,
         intro,
         age,
         sex,
