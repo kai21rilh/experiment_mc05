@@ -72,7 +72,7 @@ const intro = {
   fullscreen_mode: true,
   message:
     "<p>サーバーへの接続が完了しました。実験を開始します。<br><br>下のボタンを押して、先に進んでください。</p>",
-  trial_duration: 3000,
+  button_label: next_text,
 };
 
 // demographics
