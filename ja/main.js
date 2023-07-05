@@ -649,7 +649,7 @@ const pmc_blocks_ifood = { timeline: timeline_pmc_ifood };
 
 // follow-up 3 (interest)
 const inst_interest =
-  "以下の文について、あなたに当てはまる選択肢を選んで回答してください。";
+  "以下の質問について、あなたの考えにもっとも近い数字を選んで回答してください。";
 
 const scale_interest = [
   "1<br>まったく<br>関心が無い",
