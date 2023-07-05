@@ -232,10 +232,10 @@ const inst_q1 =
 const inst_q2 = "以下の指示をよく読んで、ページ下部の空欄に記入してください。";
 
 const ifood_sentence =
-  "私は、もし昆虫食が近所のスーパーで手に入るようになったら、日常食として購入したい。";
+  "あなたは、もし昆虫食が近所のスーパーで手に入るようになったら、日常食として購入したいと思いますか？";
 
 const aitech_sentence =
-  "私は、AI技術を、自身の日常生活のさまざまな場面で積極的に取り入れていきたい。";
+  "あなたは、AI技術を自身の日常生活のさまざまな場面で積極的に取り入れていきたいと思いますか？";
 
 const scale_q1_ifood = [
   "1<br>まったく<br>購入したくない",
@@ -346,9 +346,6 @@ const make_summary = function (topic) {
         // stimulus (common parts)
         var stim_a =
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
-          '<p style="text-align:left"><b>' +
-          ifood_sentence +
-          "</b></p><br>" +
           ifood_self +
           "<br>" +
           response_q1 +
@@ -406,9 +403,6 @@ const make_summary = function (topic) {
         // stimulus (common parts)
         var stim_a =
           '<p style="text-align:left">以下に、あなたと山口さんの回答を表示します。</p><br>' +
-          '<p style="text-align:left"><b>' +
-          aitech_sentence +
-          "</b></p><br>" +
           aitech_self +
           "<br>" +
           response_q1 +
