@@ -180,7 +180,7 @@ const pairing_start = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
     "You will now be paired with another participant.<br>Your partner will be randomly chosen from the current participants in this experiment.<br><br>Please press the button below when you are ready.<br><br>" +
-    '<font color="#c00000"><i>*If nobody is in the experiment now, you will not be paired with another participant. In that case, please access it again later. We apologize for the inconvenience.</i></font>',
+    '<font color="#c00000"><i>*If nobody is in the experiment now, you will not be paired with another participant.<br>In that case, please access it again later. We apologize for the inconvenience.</i></font>',
   choices: ["Find your partner"],
   post_trial_gap: 1000,
 };
@@ -205,7 +205,7 @@ const hourglass = {
 const nickname_self = {
   type: jsPsychSurveyLikert,
   preamble:
-    'We appreciate your patience. You have been paired with another participant successfully.<br><br>As you are informed in the introduction, you will participate in a task with your partner.<br>First, please choose <b>your nickname</b> to be used in the experiment.<br><br><font color="#c00000"><i>*To avoid duplication, you and your partner are provided different sets of nicknames as options.</i></font>',
+    'We appreciate your patience.<br>You have been paired with another participant successfully.<br><br>As you are informed in the introduction, you will participate in a task with your partner.<br>First, please choose <b>your nickname</b> to be used in the experiment.<br><br><font color="#c00000"><i>*To avoid duplication, you and your partner are provided different sets of nicknames as options.</i></font>',
   questions: [
     {
       prompt: "Which nickname would you prefer to use?",
@@ -259,39 +259,39 @@ const aitech_sentence =
   "Do you want to actively incorporate AI technology into various domains of your daily life?";
 
 const scale_q1_ifood = [
-  "1<br>absolutely<br>No",
+  "1<br>Absolutely<br>No",
   "2<br><br>No",
-  "3<br>possibly<br>No",
-  "4<br>possibly<br>Yes",
+  "3<br>Possibly<br>No",
+  "4<br>Possibly<br>Yes",
   "5<br><br>Yes",
-  "6<br>absolutely<br>Yes",
+  "6<br>Absolutely<br>Yes",
 ];
 
 const scale_q1_aitech = [
-  "1<br>absolutely<br>No",
+  "1<br>Absolutely<br>No",
   "2<br><br>No",
-  "3<br>possibly<br>No",
-  "4<br>possibly<br>Yes",
+  "3<br>Possibly<br>No",
+  "4<br>Possibly<br>Yes",
   "5<br><br>Yes",
-  "6<br>absolutely<br>Yes",
+  "6<br>Absolutely<br>Yes",
 ];
 
 const labels_q1_ifood = [
-  "absolutely No",
+  "Absolutely No",
   "No",
-  "possibly No",
-  "possibly Yes",
+  "Possibly No",
+  "Possibly Yes",
   "Yes",
-  "absolutely Yes",
+  "Absolutely Yes",
 ];
 
 const labels_q1_aitech = [
-  "absolutely No",
+  "Absolutely No",
   "No",
-  "possibly No",
-  "possibly Yes",
+  "Possibly No",
+  "Possibly Yes",
   "Yes",
-  "absolutely Yes",
+  "Absolutely Yes",
 ];
 
 // topic
@@ -303,28 +303,28 @@ const aitech_self =
 
 // condition
 const positive_nonmoral_ifood =
-  "<u>Do you want to buy insects as your regular food?</u><br>6 (absolutely Yes)<br><u>Q2. What do you think about insects as human food?</u><br>I have tried insects before and found them very tasty. If they became available in my daily life, I would be very happy to buy them.";
+  "<u>Do you want to buy insects as your regular food?</u><br>6 (Absolutely Yes)<br><u>Q2. What do you think about insects as human food?</u><br>I have tried insects before and found them very tasty. If they became available in my daily life, I would be very happy to buy them.";
 
 const positive_moral_ifood =
-  "<u>Do you want to buy insects as your regular food?</u><br>6 (absolutely Yes)<br><u>Q2. What do you think about insects as human food?</u><br>Since the future of food production is uncertain, humans will be obligated to eat insects. We should start eating them now so we can adapt to them.";
+  "<u>Do you want to buy insects as your regular food?</u><br>6 (Absolutely Yes)<br><u>Q2. What do you think about insects as human food?</u><br>Since the future of food production is uncertain, humans will be obligated to eat insects. We should start eating them now so we can adapt to them.";
 
 const negative_nonmoral_ifood =
-  "<u>Do you want to buy insects as your regular food?</u><br>1 (absolutely No)<br><u>Q2. What do you think about insects as human food?</u><br>I have tried insects before, but I did not like the taste of them at all. I would never try them again, even if I had an opportunity.";
+  "<u>Do you want to buy insects as your regular food?</u><br>1 (Absolutely No)<br><u>Q2. What do you think about insects as human food?</u><br>I have tried insects before, but I did not like the taste of them at all. I would never try them again, even if I had an opportunity.";
 
 const negative_moral_ifood =
-  "<u>Do you want to buy insects as your regular food?</u><br>1 (absolutely No)<br><u>Q2. What do you think about insects as human food?</u><br>It is wrong to eat INSECTS when there are so many other things we can choose to eat. It is against human nature. We are not reptiles.";
+  "<u>Do you want to buy insects as your regular food?</u><br>1 (Absolutely No)<br><u>Q2. What do you think about insects as human food?</u><br>It is wrong to eat INSECTS when there are so many other things we can choose to eat. It is against human nature. We are not reptiles.";
 
 const positive_nonmoral_aitech =
-  "<u>Q1. Do you want to incorporate AI technology into your daily life?</u><br>6 (absolutely Yes)<br><u>Q2. What do you think about AI technology?</u><br>AI technology saves a lot of time on various tasks and is very efficient. I want to incorporate it into my daily life actively.";
+  "<u>Q1. Do you want to incorporate AI technology into your daily life?</u><br>6 (Absolutely Yes)<br><u>Q2. What do you think about AI technology?</u><br>AI technology saves a lot of time on various tasks and is very efficient. I want to incorporate it into my daily life actively.";
 
 const positive_moral_aitech =
-  "<u>Q1. Do you want to incorporate AI technology into your daily life?</u><br>6 (absolutely Yes)<br><u>Q2. What do you think about AI technology?</u><br>People who cannot adapt to AI technology will not be able to survive shortly. I believe it is our responsibility to get familiar with it.";
+  "<u>Q1. Do you want to incorporate AI technology into your daily life?</u><br>6 (Absolutely Yes)<br><u>Q2. What do you think about AI technology?</u><br>People who cannot adapt to AI technology will not be able to survive shortly. I believe it is our responsibility to get familiar with it.";
 
 const negative_nonmoral_aitech =
-  "<u>Q1. Do you want to incorporate AI technology into your daily life?</u><br>1 (absolutely No)<br><u>Q2. What do you think about AI technology?</u><br>AI technology might be useful for a more efficient life. However, I don't find it appealing because I prefer opportunities to think and work for myself.";
+  "<u>Q1. Do you want to incorporate AI technology into your daily life?</u><br>1 (Absolutely No)<br><u>Q2. What do you think about AI technology?</u><br>AI technology might be useful for a more efficient life. However, I don't find it appealing because I prefer opportunities to think and work for myself.";
 
 const negative_moral_aitech =
-  "<u>Q1. Do you want to incorporate AI technology into your daily life?</u><br>1 (absolutely No)<br><u>Q2. What do you think about AI technology?</u><br>AI technology is like a drug that will make us dependent on it. We must not rely on it, or it will destroy our ability to think for ourselves.";
+  "<u>Q1. Do you want to incorporate AI technology into your daily life?</u><br>1 (Absolutely No)<br><u>Q2. What do you think about AI technology?</u><br>AI technology is like a drug that will make us dependent on it. We must not rely on it, or it will destroy our ability to think for ourselves.";
 
 // manipulation (condition)
 // define levels
@@ -484,7 +484,7 @@ const judgment_inst = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
     'Before proceeding to the "pair task," you will participate in a "judgment task."<br><br>' +
-    "In this task, you and John will answer the same questions on the two topics, and you can see and compare each other's responses.<br><u>This task is conducted to have some knowledge about each other's ways of thinking.</u><br><br>" +
+    "In this task, you and John will answer the same questions on the two topics.<br>After that, you can see and compare each other's responses.<br><u>This task is conducted to have some knowledge about each other's ways of thinking.</u><br><br>" +
     '<font color="#c00000"><i>*The judgment task will automatically start after 20 seconds. Please wait a moment...</i></font>',
   choices: "NO_KEYS",
   trial_duration: 20000,
@@ -1339,7 +1339,7 @@ const dv_blocks = {
 const complete = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    'We appreciate your cooperation. It concludes the experimental program.<br><br>You are now redirected to the survey webpage.<br>You will be asked to enter the "password" on the survey page to confirm you have completed the experimental program.<br><br>The password is <b>' +
+    'We appreciate your cooperation.<br>It concludes the experimental program.<br><br>You are now redirected to the survey webpage.<br>You will be asked to enter the "password" to confirm you have completed the experimental program.<br><br>The password is <b>' +
     password +
     "</b>.<br>Please ensure you save it.<br><br>" +
     '<font color="#c00000"><i>*It will proceed to the next page after 20 seconds.</i></font>',
