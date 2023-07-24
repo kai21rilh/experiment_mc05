@@ -1155,7 +1155,7 @@ const judgment_task_end = {
 const srg_inst = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "We will ask about your current impression of John on the next page.<br><u>Note that your answers to the questions will not be shown to John.</u><br><br>" +
+    "We will ask about <b>your current impression of John</b> on the next page.<br><u>Note that your answers to the questions will not be shown to John.</u><br><br>" +
     '<font color="#c00000"><i>*It will proceed to the next page after 10 seconds.</i></font>',
   choices: "NO_KEYS",
   trial_duration: 10000,
