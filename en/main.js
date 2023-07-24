@@ -533,7 +533,7 @@ const judgment_ifood_q2 = {
 };
 
 // waiting period
-const rt_partner_ifood = jsPsych.randomization.randomInt(55000, 65000);
+const rt_partner_ifood = jsPsych.randomization.randomInt(85000, 95000);
 const hourglass_ifood = {
   type: jsPsychImageKeyboardResponse,
   stimulus: img_hourglass,
@@ -894,7 +894,7 @@ const judgment_aitech_q2 = {
 };
 
 // waiting period
-const rt_partner_aitech = jsPsych.randomization.randomInt(55000, 65000);
+const rt_partner_aitech = jsPsych.randomization.randomInt(85000, 95000);
 const hourglass_aitech = {
   type: jsPsychImageKeyboardResponse,
   stimulus: img_hourglass,
@@ -1241,7 +1241,7 @@ const srg_blocks = {
 };
 
 // waiting period
-const rt_partner = jsPsych.randomization.randomInt(40000, 50000);
+const rt_partner = jsPsych.randomization.randomInt(55000, 65000);
 const hourglass3 = {
   type: jsPsychImageKeyboardResponse,
   stimulus: img_hourglass,
