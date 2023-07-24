@@ -1340,7 +1340,7 @@ const exit_fs = {
   delay_after: 0,
 };
 
-// timeline (counterbalance)
+// timeline
 const define_timeline = function () {
   if (topic_1 == "insect_food") {
     new_timeline = {
