@@ -179,8 +179,8 @@ const ideology_blocks = {
 const pairing_start = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
-    "You will now be paired with another participant.<br>Your partner will be randomly chosen from the current participants in this experiment.<br><br>Please press the button below when you are ready.<br><br>" +
-    '<font color="#c00000"><i>*If nobody is in the experiment now, you will not be paired with another participant.<br>In that case, please access it again later. We apologize for the inconvenience.</i></font>',
+    "You will now be paired with another person.<br>Your partner will be randomly chosen from the current participants in this experiment.<br><br>Please press the button below when you are ready.<br><br>" +
+    '<font color="#c00000"><i>*If nobody is on this server, you will not be paired with another participant.<br>In that case, please access it again later. We apologize for the inconvenience.</i></font>',
   choices: ["Find your partner"],
   post_trial_gap: 1000,
 };
@@ -205,7 +205,7 @@ const hourglass = {
 const nickname_self = {
   type: jsPsychSurveyLikert,
   preamble:
-    'We appreciate your patience.<br>You have been paired with another participant successfully.<br><br>As you are informed in the introduction, you will participate in a task with your partner.<br>First, please choose <b>your nickname</b> to be used in the experiment.<br><br><font color="#c00000"><i>*To avoid duplication, you and your partner are provided different sets of nicknames as options.</i></font>',
+    'You have been paired with another participant successfully.<br><br>As you are informed in the introduction, you will participate in several tasks with your partner.<br>First, please choose <b>your nickname</b> to be used in the experiment.<br><br><font color="#c00000"><i>*To avoid duplication, you and your partner are provided different sets of nicknames as options.</i></font>',
   questions: [
     {
       prompt: "Which nickname would you prefer to use?",
@@ -237,7 +237,7 @@ const nickname_info = {
     return (
       'The nicknames have been set. Your nickname is "<b>' +
       chosen_nn +
-      '</b>," and your partner\'s is "John."<br>Please remember the nicknames since we will refer to you and your partner in the experiment with these names.<br><br><font color="#c00000"><i>*It will proceed to the next page after 10 seconds.</i></font>'
+      '</b>," and your partner\'s is "<b>John</b>."<br>Please remember the nicknames since we will refer to you and your partner in the experiment with these names.<br><br><font color="#c00000"><i>*It will proceed to the next page after 10 seconds.</i></font>'
     );
   },
   choices: "NO_KEYS",
@@ -765,9 +765,9 @@ const tf_ifood = {
     {
       prompt:
         '<p style="text-align:left">' +
-        "John is happy about adopting insects as a regular food." +
+        "John is willing to adopt insects as a regular food." +
         "</p>",
-      labels: ["False", "True"],
+      labels: ["True", "False"],
       name: "tf_ifood",
       required: true,
     },
@@ -1068,9 +1068,9 @@ const tf_aitech = {
     {
       prompt:
         '<p style="text-align:left">' +
-        "John is happy about incorporating AI technology into his daily life." +
+        "John is willing to incorporate AI technology into his daily life." +
         "</p>",
-      labels: ["False", "True"],
+      labels: ["True", "False"],
       name: "tf_aitech",
       required: true,
     },
@@ -1339,9 +1339,9 @@ const dv_blocks = {
 const complete = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    'We appreciate your cooperation.<br>It concludes the experimental program.<br><br>You are now redirected to the survey webpage.<br>You will be asked to enter the "password" to confirm you have completed the experimental program.<br><br>The password is <b>' +
+    'We appreciate your cooperation.<br>It concludes the experimental program.<br><br>You are now redirected to the survey webpage.<br>You will be asked to enter the "password" to confirm you have completed the experiment.<br><br>The password is <b>' +
     password +
-    "</b>.<br>Please ensure you save it.<br><br>" +
+    "</b>. Please copy and save it before proceeding.<br><br>" +
     '<font color="#c00000"><i>*It will proceed to the next page after 20 seconds.</i></font>',
   choices: "NO_KEYS",
   trial_duration: 20000,
