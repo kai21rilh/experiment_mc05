@@ -753,7 +753,7 @@ const tf_ifood = {
         '<p style="text-align:left">' +
         "昆虫食を日常食とすることに対して、山口さんは積極的である。" +
         "</p>",
-      labels: ["誤り", "正しい"],
+      labels: ["正しい", "誤り"],
       name: "tf_ifood",
       required: true,
     },
@@ -1056,7 +1056,7 @@ const tf_aitech = {
         '<p style="text-align:left">' +
         "AI技術を日常生活に取り入れることに対して、山口さんは積極的である。" +
         "</p>",
-      labels: ["誤り", "正しい"],
+      labels: ["正しい", "誤り"],
       name: "tf_aitech",
       required: true,
     },
