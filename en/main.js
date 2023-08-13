@@ -117,7 +117,7 @@ const race = {
         "Black or<br>African American",
         "Asian",
         "Pacific Islander",
-        "Of Hispanic, Latino, or<br>Spanish origin",
+        "Of Hispanic, Latino,<br>or Spanish origin",
         "American Indian or<br>Alaska Native",
         "Some other race",
       ],
